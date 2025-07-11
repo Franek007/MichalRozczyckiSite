@@ -4,10 +4,11 @@ $ff-heading: 'Montserrat', sans-serif;
 $ff-text: 'Inter', sans-serif;
 $h1: bold 4.8rem/90% $ff-heading;
 $h1-spacing: -2%;
-$h2: light 1.8rem/100%;
+$h2: lighter 1.8rem/100% $ff-text;
 $text-h2: bold 2rem/90% $ff-heading;
 $h2-spacing: 2%;
 $text-regular: math.div(1.6rem, 1.25); // 125%
+$text-regular: normal 1.6rem/150% $ff-text;
 $text-small: math.div(1.4rem, 1.25); // 125%
 
 $margin-xxs: 0.4rem;
@@ -17,6 +18,7 @@ $margin-m: 1.6rem;
 $margin-l: 2rem;
 $margin-xl: 2.8rem;
 $margin-xxl: 4rem;
+$margin-xxxl: 6rem;
 
 $padding-xxs: 0.4rem;
 $padding-xs: 0.8rem;

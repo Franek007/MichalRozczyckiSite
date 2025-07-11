@@ -1,5 +1,5 @@
 @use '../utilities/sizes' as *;
-gul
+
 .wrapper {
 	margin: 0 auto;
 	width: 100%;
@@ -10,8 +10,21 @@ gul
 	padding: 4.2em 1em;
 }
 
+.section-heading-box {
+	margin-top: $margin-xxxl;
+}
+
 .section-heading {
 	font: $h2;
+	letter-spacing: $h2-spacing;
+	font-weight: 200;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.section-text {
+	margin-top: $margin-xxs;
+	font: $text-h2;
 	text-align: center;
 }
 
