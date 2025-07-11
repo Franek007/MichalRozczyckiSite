@@ -1,0 +1,27 @@
+@use 'sass:math';
+
+$ff-heading: 'Montserrat', sans-serif;
+$ff-text: 'Inter', sans-serif;
+$h1: bold 4.8rem/90% $ff-heading;
+$h1-spacing: -2%;
+$h2: light 1.8rem/100%;
+$text-h2: bold 2rem/90% $ff-heading;
+$h2-spacing: 2%;
+$text-regular: math.div(1.6rem, 1.25); // 125%
+$text-small: math.div(1.4rem, 1.25); // 125%
+
+$margin-xxs: 0.4rem;
+$margin-xs: 0.8rem;
+$margin-s: 1.2rem;
+$margin-m: 1.6rem;
+$margin-l: 2rem;
+$margin-xl: 2.8rem;
+$margin-xxl: 4rem;
+
+$padding-xxs: 0.4rem;
+$padding-xs: 0.8rem;
+$padding-s: 1.2rem;
+$padding-m: 1.6rem;
+$padding-l: 2rem;
+$padding-xl: 2.8rem;
+$padding-xxl: 4rem;

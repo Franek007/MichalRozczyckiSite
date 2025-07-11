@@ -5,8 +5,6 @@ let navSideBar
 let firstBurgerBar
 let navItems
 let navHomeIcon
-let changeThemeBtns
-let chagneThemeBtnColor
 let footerYear
 let isDark = false
 
@@ -19,16 +17,14 @@ const prepareDOMElements = () => {
 	burgerBtn = document.querySelector('.burgerBtn')
 	navBar = document.querySelector('.nav')
 	navSideBar = navBar.querySelector('.nav__sidebar')
-	firstBurgerBar = navBar.querySelector('.firstBar')
+	firstBurgerBar = navBar.querySelector('.burgerBtn__firstBar')
 	navItems = navBar.querySelectorAll('.nav__item')
-	navHomeIcon = navBar.querySelector('.nav__icon')
-	changeThemeBtns = document.querySelectorAll('.nav__appearance-toggle')
-	chagneThemeBtnColor = document.querySelector('.nav__appearance-toggle--active')
+	navHomeIcon = navBar.querySelector('.nav__home')
 	footerYear = document.querySelector('.footer__year')
 }
 
 const prepareDOMEvents = () => {
-	savedTheme()
+	// savedTheme()
 	burgerBtn.addEventListener('click', handleMobileNav)
 	navItems.forEach(item => {
 		item.addEventListener('click', handleMobileNav)
@@ -38,9 +34,9 @@ const prepareDOMEvents = () => {
 			navSideBar.classList.remove('nav__sidebar--active')
 		}
 	})
-	changeThemeBtns.forEach(btn => {
-		btn.addEventListener('click', handleThemeBtn)
-	})
+	// changeThemeBtns.forEach(btn => {
+	// 	btn.addEventListener('click', handleThemeBtn)
+	// })
 	getTime()
 }
 
@@ -85,6 +81,11 @@ const savedTheme = () => {
 const handleMobileNav = () => {
 	navSideBar.classList.toggle('nav__sidebar--active')
 	burgerBtn.classList.toggle('burgerBtn--active')
+	navHomeIcon.classList.toggle('nav__home--active')
+
+	navItems.forEach(item => {
+		item.parentElement.classList.toggle('nav__item--active')
+	})
 }
 
 const getTime = () => {

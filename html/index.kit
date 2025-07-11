@@ -4,129 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Franciszek Rubinowicz — Web Developer Szczecin</title>
+    <title>Michał Różycki — Filmy Szczecin</title>
     <!-- @include 'head.kit' -->
-    <link rel="canonical" href="https://FRubinowicz.pl" />
-    <meta name="description"
-        content="Franciszek Rubinowicz — Web Developer ze Szczecina. Tworzę nowoczesne strony, które pomagają rozwinąć Twój biznes. Razem zbudujmy coś wyjątkowego.">
-
+    <link rel="canonical" href="" />
+    <meta name="description" content="">
 </head>
 
 <body>
     <!-- @include 'nav.kit' -->
     <header class=" section section-padding header">
+        <video class="header__video" autoplay muted loop playsinline preload="metadata">
+            <source src="./src/video/video.webm" type="video/webm" />
+            <source src="./src/video/video.mp4" type="video/mp4" />
+            Twoja przeglądarka nie wspiera video.
+        </video>
         <div class="wrapper">
-
             <div class="header__box">
                 <div class="header__heading-box">
-                    <h1 class="header__heading">Franciszek Rubinowicz</h1>
-                    <i class="fa-solid fa-quote-left"></i>
-                    <p class="header__quote">
-                    </p>
-                    <span class="header__qoute-author"></span>
+                    <h1 class="header__heading">Michał Różycki</h1>
+                    <p class="header__text">Tworzenie profesjonalny treści filmowych</p>
                 </div>
                 <div class="header__btns">
-                    <a href="portfolio.html" class="header__btn header__btn--left">Zobacz portfolio</a>
-                    <a href="#about" class="header__btn header__btn--right header__btn-link--right">Więcej o mnie</a>
+                    <a href="portfolio.html" class="header__btn header__btn--left">Zobacz projekty</a>
+                    <a href="#about" class="header__btn header__btn--right header__btn-link--right">O pracy</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                        class="header__btns-arrow" aria-label="arrow icon" role="img">
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="m18 15l3-3l-3-3M3 12a2 2 0 1 0 4 0a2 2 0 1 0-4 0m4 0h14" />
+                    </svg>
                 </div>
             </div>
-            <div class="header__box--right">
-                <img src="./dist/img/iphone-14.webp" alt="Ręka w której leży telefon" class="header__img">
-            </div>
+
         </div>
+        <div class="header__shadow"></div>
     </header>
     <main>
-        <section class="section section-padding about" id="about">
-            <div class="custom-shape-divider-top">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                    preserveAspectRatio="none">
-                    <path
-                        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-                        class="shape-fill"></path>
-                </svg>
-            </div>
+        <section class="section section-padding opinions" id="opinions">
             <div class="wrapper">
-                <h2 class="section-heading">O mnie</h2>
-                <div class="about__box">
-                    <div class="about__box-img">
-                        <img src="./dist/img/FranekImg.jpeg" alt="Zdjęcie Franciszka Rubinowicza" class="about__img">
+                <div class="section-heading-box">
+                    <h2 class="section-heading">Opinie</h2>
+                    <p class="section-text">Przeczytaj co inni mają do powiedzenia</p>
+                </div>
+                <div class="opinions__cards">
+                    <div class="opinions__card">
+                        <img src="" alt="">
+                        <p class="opinions__heading">Olivia Cole</p>
+                        <p class="opinions__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima
+                            molestiae quasi hic quam at tenetur corrupti sint aperiam numquam quas saepe ratione
+                            architecto, ad adipisci provident laudantium et eveniet molestias.</p>
                     </div>
-                    <div class="about__box-text">
-                        <p class="about__text--big">Cześć!</p>
-                        <p class="about__text">Mam na imię Franek. Jestem <span class="about__text-span">full-stack
-                                developerem</span> na początku swojej kariery. Tworzę responsywne strony o wysokiej
-                            wydajności, przyjazne użytkownikom i zoptymalizowane pod SEO.
-                            Lubie pomagać ludziom. <a href="portfolio.html" class="about__text--highlighted">Zobacz moje
-                                portfolio!</a>
-                        </p>
-
-                        <p class="about__text--big">Zainteresowania</p>
-                        <ul class="about__list">
-                            <li class="about__list-item">W swoim wolnym czasie lubię:</li>
-                            <li class="about__list-item"><span class="about__list-dash">—</span> czytać książki 📖</li>
-                            <li class="about__list-item"><span class="about__list-dash">—</span> jeździć na rowerze
-                                🚴‍♀️
-                            </li>
-                            <li class="about__list-item"><span class="about__list-dash">—</span> ekspozycje na zimno 🧊
-                            </li>
-                        </ul>
-                        <div class="about__techonologies">
-                            <h3 class="sub-heading">Technologie:</h3>
-
-
-                            <div class="about__slider">
-                                <div class="about__slider-box">
-                                    <div class="about__slider-item about__slider-item--wall"><img
-                                            src="./src/img/technologies/css.svg" alt="css icon"
-                                            class="about__slider-icon">
-                                    </div>
-
-                                    <div class="about__slider-item"><img src="./dist/img/technologies/html.svg"
-                                            alt="html icon" class="about__slider-icon">
-                                    </div>
-                                    <div class="about__slider-item"><img src="./dist/img/technologies/js.svg"
-                                            alt="JavaScript icon" class="about__slider-icon">
-                                    </div>
-                                    <div class="about__slider-item"><img src="./dist/img/technologies/tailwind.svg"
-                                            alt="tailwind icon" class="about__slider-icon" class="about__slider-icon">
-                                    </div>
-                                </div>
-                                <div class="about__slider-box">
-                                    <div class="about__slider-item"><img src="./dist/img/technologies/react.svg"
-                                            alt="react icon" class="about__slider-icon" class="about__slider-icon">
-                                    </div>
-                                    <div class="about__slider-item"><img src="./dist/img/technologies/bootstrap.svg"
-                                            alt="bootstrap icon" class="about__slider-icon" class="about__slider-icon">
-                                    </div>
-                                    <div class="about__slider-item"><img src="./dist/img/technologies/sass.svg"
-                                            alt="sass icon" class="about__slider-icon" class="about__slider-icon">
-                                    </div>
-                                    <div class="about__slider-item"><img
-                                            src="./dist/img/technologies/visual-studio-code.svg"
-                                            alt="Visual Studio Code icon" class="about__slider-icon"
-                                            class="about__slider-icon">
-                                    </div>
-                                </div>
-                                <div class="about__slider-box">
-                                    <div class="about__slider-item"><img src="./dist/img/technologies/css.svg"
-                                            alt="css icon" class="about__slider-icon">
-                                    </div>
-
-                                    <div class="about__slider-item"><img src="./dist/img/technologies/html.svg"
-                                            alt="html icon" class="about__slider-icon">
-                                    </div>
-                                    <div class="about__slider-item"><img src="./dist/img/technologies/js.svg"
-                                            alt="JavaScript icon" class="about__slider-icon">
-                                    </div>
-                                    <div class="about__slider-item"><img src="./dist/img/technologies/tailwind.svg"
-                                            alt="tailwind icon" class="about__slider-icon" class="about__slider-icon">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
+                </div>
+                <div class="opinions__progress">
+                    <div class="opinions__progress-dot"></div>
+                    <div class="opinions__progress-dot"></div>
+                    <div class="opinions__progress-dot"></div>
+                </div>
+                <div class="opinions__btns">
+                    <div class="opinion__btn opinion__btn--left"></div>
+                    <div class="opinion__btn opinion__btn--right"></div>
+                </div>
+                <h3 class="section-text">Zaufali mi</h3>
+                <div class="opinions__logos">
+                    <div class="opinions__logo"></div>
+                    <div class="opinions__logo"></div>
+                    <div class="opinions__logo"></div>
                 </div>
             </div>
         </section>
