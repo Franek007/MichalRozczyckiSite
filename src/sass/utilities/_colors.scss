@@ -1,0 +1,53 @@
+:root {
+	--color-bg-light: hsl(0, 0%, 100%); //Ważne elementy (Jak padajace słonce)
+	--color-surface: hsl(0, 0%, 95%); // Sekcje / boxy
+	--color-bg-dark: hsl(0, 0%, 90%); // Tło
+	--color-bg-darkest: hsl(0, 0%, 85%); // Linie, obramowania
+	--color-footer: hsl(0, 0%, 40%);
+
+	--color-text: hsl(0, 0%, 5%); // Główny tekst
+	--color-text-secondary: hsl(0, 0%, 30%); // Mniej ważny tekst
+	--color-border: hsl(0, 0%, 30%);
+	--gradient: linear-gradient(0deg, var(--color-surface) 95%, var(--color-light));
+	--gradient-hover: linear-gradient(0deg, var(--color-surface) 100%, var(--color-light));
+	--highlight: hsl(0, 0%, 100%);
+	--border-card: solid 1px var(var(--color-surface));
+	--shadow: 0px 2px 2px hsla(0, 0%, 0%, 0.07), 0px 4px 4px hsla(0, 0%, 0%, 0.15);
+
+	--color-accent: hsl(240, 15%, 61%);
+	--color-accent--highlight: rgba(141, 141, 170, 0.6);
+	--color-selection: hsl(240, 50%, 80%);
+
+	--color-error-bg: hsl(240, 100%, 94%);
+	--color-error-text: hsl(240, 31%, 27%);
+	--color-succes: hsl(143, 76%, 32%);
+	--color-error: hsl(9, 73%, 39%);
+
+	// https://youtu.be/vvPklRN0Tco?si=0iPC1jXqUBxPClnD --  COLORS TUTORIAL
+}
+
+.dark-mode {
+	--color-bg-light: hsl(0, 0%, 0%); //Ważne elementy (Jak padajace słonce)
+	--color-surface: hsl(0, 0%, 5%); // Sekcje / boxy
+	--color-bg-darkest: hsl(0, 0%, 15%); // Linie, obramowania
+	--color-bg-dark: hsl(0, 0%, 10%); // Tło
+	--color-footer: hsl(0, 0%, 70%);
+
+	--color-text: hsl(0, 0%, 95%); // Główny tekst
+	--color-text-secondary: hsl(0, 0%, 70%); // Mniej ważny tekst
+
+	--color-border: hsl(0, 0%, 30%);
+	--gradient: linear-gradient(0deg, var(--color-surface) 95%, var(--color-light));
+	--gradient-hover: linear-gradient(0deg, var(--color-surface) 100%, var(--color-light));
+	--highlight: hsl(0, 0%, 60%);
+	--border-card: solid 1px var(--border);
+	--shadow: 0px 2px 2px hsla(0, 0%, 0%, 0.07), 0px 4px 4px hsla(0, 0%, 0%, 0.15);
+
+	--color-accent: hsl(240, 15%, 61%);
+	--color-accent--highlight: rgba(141, 141, 170, 0.6);
+	--color-selection: hsl(240, 50%, 80%);
+	--color-error-bg: hsl(240, 100%, 94%);
+	--color-error-text: hsl(240, 42%, 60%);
+	--color-succes: hsl(143, 76%, 32%);
+	--color-error: hsl(9, 73%, 39%);
+}

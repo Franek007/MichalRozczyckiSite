@@ -1,0 +1,80 @@
+@use 'utilities/colors' as *;
+
+.wrapper {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1200px;
+}
+
+.about,
+.contact .wrapper {
+	margin-top: 4.2em;
+}
+
+.section-padding {
+	padding: 4.2em 1em;
+}
+
+.section-heading {
+	margin-bottom: 1em;
+	font-size: 3.2rem;
+	font-family: 'Libre Baskerville';
+	text-align: center;
+}
+
+.sub-heading {
+	margin-bottom: 0.5em;
+	font-size: 2.4rem;
+	font-family: 'Libre Baskerville';
+}
+
+.custom-shape-divider-top {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 300%;
+	animation: moving-shape-divider 4s ease-in-out infinite;
+	overflow: hidden;
+	line-height: 0;
+}
+
+.custom-shape-divider-top svg {
+	position: relative;
+	display: block;
+	width: calc(150% + 1.3px);
+	height: 60px;
+}
+
+.custom-shape-divider-top .shape-fill {
+	fill: var(--color-bg-dark);
+}
+
+.contact .custom-shape-divider-top .shape-fill {
+	fill: var(--color-bg-light);
+}
+
+@keyframes moving-shape-divider {
+	0% {
+		transform: translateX(0%);
+	}
+
+	50% {
+		transform: translateX(-65%);
+	}
+
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+@mixin underLine {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	// background-image: url('../img/line-star.svg');
+	background-color: var(--color-text);
+	content: '';
+	z-index: 1000;
+}

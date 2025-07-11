@@ -1,0 +1,43 @@
+@use 'utilities/colors' as *;
+@use 'components/components' as *;
+@use 'components/nav';
+@use 'components/header';
+@use 'components/about';
+@use 'components/contact';
+@use 'components/footer';
+@use 'components/portfolio';
+@use 'components/policy';
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+::selection {
+	background-color: var(--color-selection);
+}
+
+a {
+	text-decoration: none;
+	color: var(--color-text);
+}
+
+body {
+	height: 100vh;
+	font-family: 'Source Sans 3', sans-serif;
+	font-size: 1.6rem;
+	background-color: var(--color-bg-dark);
+	color: var(--color-text);
+}
+
+li {
+	list-style: none;
+}

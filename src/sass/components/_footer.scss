@@ -1,0 +1,31 @@
+@use 'components/components' as *;
+
+.footer {
+	position: relative;
+	padding: 1em 2em;
+	width: 100%;
+	background-color: var(--color-bg-darkest);
+
+	&__text {
+		text-align: center;
+	}
+
+	&__box {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0 0.25em;
+	}
+
+	&__icon {
+		height: 28px;
+		width: 28px;
+		color: var(--color-text);
+	}
+}
