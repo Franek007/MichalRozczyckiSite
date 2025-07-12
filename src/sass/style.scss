@@ -2,6 +2,7 @@
 @use './utilities/sizes' as *;
 @use './components/components' as *;
 @use './components/nav';
+@use './components/footer';
 @use './pages/landingPage';
 
 *,
@@ -29,8 +30,10 @@ a {
 
 body {
 	height: 100vh;
-	font-size: 1.6rem;
+	font: $text-regular;
+	letter-spacing: 2%;
 	@include interFont;
+	font-weight: 200;
 	background-color: var(--bg-dark);
 	color: var(--text);
 }

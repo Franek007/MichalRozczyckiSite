@@ -1,19 +1,47 @@
-@use 'components/components' as *;
+@use '../components/components' as *;
+@use '../utilities/sizes' as *;
 
 .footer {
-	position: relative;
-	padding: 1em 2em;
+	height: 50vh;
 	width: 100%;
-	background-color: var(--color-bg-darkest);
 
-	&__text {
-		text-align: center;
+	.wrapper {
+		height: 100%;
 	}
 
 	&__box {
 		display: flex;
 		align-items: center;
+		flex-direction: column;
+		height: 100%;
+	}
+
+	&__contact {
+		display: flex;
+		align-items: center;
 		justify-content: center;
+		flex-direction: column;
+		width: 65%;
+
+		&-btn {
+			@include btn;
+			margin-top: $margin-l;
+			width: 100%;
+
+			&:hover {
+				background-color: var(--bg-light);
+				color: var(--primary);
+			}
+		}
+	}
+
+	&__text-box {
+		margin-top: auto;
+		width: 100%;
+	}
+
+	&__text {
+		font-weight: normal;
 	}
 
 	&__link {
@@ -24,8 +52,9 @@
 	}
 
 	&__icon {
-		height: 28px;
-		width: 28px;
+		margin-bottom: $margin-xs;
+		height: 32px;
+		width: 32px;
 		color: var(--color-text);
 	}
 }

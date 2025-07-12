@@ -10,9 +10,9 @@
 	padding: 4.2em 1em;
 }
 
-.section-heading-box {
-	margin-top: $margin-xxxl;
-}
+// .section-heading-box {
+// 	margin-top: $margin-xxxl;
+// }
 
 .section-heading {
 	font: $h2;
@@ -25,6 +25,7 @@
 .section-text {
 	margin-top: $margin-xxs;
 	font: $text-h2;
+	letter-spacing: $h1-spacing;
 	text-align: center;
 }
 
@@ -57,4 +58,62 @@
 	font-optical-sizing: auto;
 	font-weight: 400;
 	font-style: normal;
+}
+
+@mixin card {
+	padding: $padding-l $padding-xl;
+	background-image: var(--gradient);
+	box-shadow: var(--shadow);
+	border: var(--border-card);
+	border-top: var(--highlight);
+	border-radius: 4px;
+	z-index: 1;
+
+	&:hover {
+		background-image: var(--gradient-hover);
+	}
+}
+
+@mixin btn {
+	display: flex;
+	justify-content: center;
+	padding: $margin-xs $margin-s;
+	height: 100%;
+	font: $text-small;
+	font-weight: normal;
+	color: var(--text);
+	background: transparent;
+	border-radius: 9999px;
+	border: 2px solid var(--text);
+	text-align: center;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+@mixin sliderBtns {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	width: 100%;
+}
+
+@mixin sliderBtn {
+	width: 100px;
+	@include btn;
+
+	&:hover {
+		background-color: var(--text-light);
+		color: var(--primary);
+	}
+
+	&--active {
+		border-color: var(--text-secondary);
+		opacity: 0.6;
+		pointer-events: none;
+	}
+
+	&-arrow {
+		width: 20px;
+		height: 20px;
+	}
 }

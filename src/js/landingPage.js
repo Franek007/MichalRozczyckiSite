@@ -5,6 +5,15 @@ let opinionsBtnLeft
 let opinionsBtns
 let opinionsSlider
 
+// realization
+let realizationCards
+let realizationBtnRight
+let realizationBtnLeft
+let realizationBtns
+let realizationSlider
+let cardWidth = 300 + 20 // 300px szerokości + np. 20px marginesu/gap między kartami
+let currentIndex = 0 // początek
+
 const main2 = () => {
 	prepareDOMElements()
 	prepareDOMEvents()
@@ -17,6 +26,12 @@ const prepareDOMElements = () => {
 	opinionsBtnRight = document.querySelector('.opinions__btn--right')
 	opinionsBtns = document.querySelectorAll('.opinions__btn')
 	opinionsSlider = document.querySelector('.opinions__slider')
+
+	realizationCards = document.querySelectorAll('.realization__card')
+	realizationBtnRight = document.querySelector('.realization__btn--right')
+	realizationBtnLeft = document.querySelector('.realization__btn--left')
+	realizationBtns = document.querySelectorAll('.realization__btn')
+	realizationSlider = document.querySelector('.realization__slider')
 }
 
 const prepareDOMEvents = () => {
@@ -28,14 +43,26 @@ const prepareDOMEvents = () => {
 		}
 	})
 	handleOpinionsDot()
+
+	realizationBtns.forEach(btn => {
+		if (btn.classList.contains('realization__btn--left')) {
+			btn.addEventListener('click', handleRealizationBtnLeftSlider)
+		} else {
+			btn.addEventListener('click', handleRealizationBtnRightSlider)
+		}
+	})
+
+	handleRealizationSlider()
+	gsap.from('.header', { duratrion: 1, y: '-100%', ease: 'bounce' })
+	
 }
 
 const handleOpinionLeftSlider = () => {
-	handleActiveCard('left', -1)
+	handleOpinionsSlider('left', -1)
 }
 
 const handleOpinionRightSlider = () => {
-	handleActiveCard('right', 1)
+	handleOpinionsSlider('right', 1)
 }
 
 const handleOpinionsDot = () => {
@@ -47,13 +74,13 @@ const handleOpinionsDot = () => {
 			const diff = targetNumber - currentNumber
 
 			if (diff !== 0) {
-				handleActiveCard(diff > 0 ? 'right' : 'left', Math.abs(diff))
+				handleOpinionsSlider(diff > 0 ? 'right' : 'left', Math.abs(diff))
 			}
 		})
 	})
 }
 
-const handleActiveCard = (direction, value) => {
+const handleOpinionsSlider = (direction, value) => {
 	let activeCard = Array.from(opinionsCards).find(card => card.classList.contains('opinions__card--active'))
 
 	const activeCardDataset = activeCard.dataset.cardNumber
@@ -64,13 +91,7 @@ const handleActiveCard = (direction, value) => {
 	if (newCardNumber > 3) newCardNumber = 1
 	if (newCardNumber < 1) newCardNumber = 3
 
-	// if (direction == 'right') {
-	// 	activeCard.style.transform = 'translateX(-300px)'
-	// } else {
-	// 	activeCard.style.transform = 'translateX(300px)'
-	// }
-
-	const offset = (newCardNumber - 1) * 320 // lub dynamicznie: opinionsCards[0].offsetWidth
+	const offset = (newCardNumber - 1) * 320
 	opinionsSlider.style.transform = `translateX(-${offset}px)`
 
 	const newActiveCard = Array.from(opinionsCards).find(card => parseInt(card.dataset.cardNumber) === newCardNumber)
@@ -83,6 +104,47 @@ const handleActiveCard = (direction, value) => {
 
 	const newActiveDot = Array.from(opinionsProgressDots).find(dot => parseInt(dot.dataset.cardNumber) === newCardNumber)
 	newActiveDot.classList.add('opinions__progress-dot--active')
+}
+
+const handleRealizationBtnLeftSlider = () => {
+	const maxIndex = realizationCards.length - 1
+	if (currentIndex <= maxIndex) {
+		currentIndex--
+		handleRealizationSlider()
+	}
+}
+
+const handleRealizationBtnRightSlider = () => {
+	const maxIndex = realizationCards.length - 1
+	if (currentIndex < maxIndex) {
+		currentIndex++
+		handleRealizationSlider()
+	}
+}
+
+const handleRealizationSlider = () => {
+	console.log(realizationCards.length)
+	const maxIndex = realizationCards.length - 1
+
+	if (currentIndex === maxIndex) {
+		let cardWidth = 280
+		realizationSlider.style.transform = `translateX(-${currentIndex * cardWidth}px)`
+		realizationBtnRight.classList.add('realization__btn--active')
+	} else {
+		realizationSlider.style.transform = `translateX(-${currentIndex * cardWidth}px)`
+
+		if (currentIndex === 0) {
+			realizationBtnLeft.classList.add('realization__btn--active')
+		} else {
+			realizationBtnLeft.classList.remove('realization__btn--active')
+		}
+
+		if (currentIndex >= maxIndex) {
+			realizationBtnRight.classList.add('realization__btn--active')
+		} else {
+			realizationBtnRight.classList.remove('realization__btn--active')
+		}
+	}
 }
 
 document.addEventListener('DOMContentLoaded', main2)
