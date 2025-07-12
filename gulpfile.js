@@ -11,6 +11,10 @@ const clean = require('gulp-clean')
 const kit = require('gulp-kit')
 const browserSync = require('browser-sync').create()
 const reload = browserSync.reload
+const browserify = require('browserify')
+const source = require('vinyl-source-stream')
+const buffer = require('vinyl-buffer')
+const babelify = require('babelify')
 
 const paths = {
 	html: './html/**/*.kit',
@@ -38,13 +42,23 @@ function sassCompiler(done) {
 }
 
 function javaScript(done) {
-	src(paths.js)
-		.pipe(sourcemaps.init())
-		.pipe(babel({ presets: ['@babel/env'] }))
+	browserify({
+		entries: ['./src/js/app.js'],
+		debug: true,
+	})
+		.transform(
+			babelify.configure({
+				presets: ['@babel/preset-env'],
+			})
+		)
+		.bundle()
+		.pipe(source('app.min.js'))
+		.pipe(buffer())
+		.pipe(sourcemaps.init({ loadMaps: true }))
 		.pipe(uglify())
-		.pipe(rename({ suffix: '.min' }))
-		.pipe(sourcemaps.write())
+		.pipe(sourcemaps.write('.'))
 		.pipe(dest(paths.jsDest))
+
 	done()
 }
 

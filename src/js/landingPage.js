@@ -53,8 +53,6 @@ const prepareDOMEvents = () => {
 	})
 
 	handleRealizationSlider()
-	gsap.from('.header', { duratrion: 1, y: '-100%', ease: 'bounce' })
-	
 }
 
 const handleOpinionLeftSlider = () => {

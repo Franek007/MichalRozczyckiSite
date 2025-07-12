@@ -1,3 +1,5 @@
+import gsap from 'gsap'
+
 let burgerBtn
 let navBar
 let sideBar
@@ -6,7 +8,7 @@ let firstBurgerBar
 let navItems
 let navHomeIcon
 let footerYear
-let isDark = false
+let lastScroll = 0
 
 const main = () => {
 	prepareDOMElements()
@@ -24,7 +26,6 @@ const prepareDOMElements = () => {
 }
 
 const prepareDOMEvents = () => {
-	// savedTheme()
 	burgerBtn.addEventListener('click', handleMobileNav)
 	navItems.forEach(item => {
 		item.addEventListener('click', handleMobileNav)
@@ -34,48 +35,8 @@ const prepareDOMEvents = () => {
 			navSideBar.classList.remove('nav__sidebar--active')
 		}
 	})
-	// changeThemeBtns.forEach(btn => {
-	// 	btn.addEventListener('click', handleThemeBtn)
-	// })
+	window.addEventListener('scroll', hideNav)
 	getTime()
-}
-
-const handleThemeBtn = () => {
-	changeThemeBtns.forEach(btn => {
-		btn.classList.toggle('nav__appearance-toggle--active')
-		btn.classList.contains('nav__appearance-toggle--active')
-			? localStorage.setItem('isActive', 'true')
-			: localStorage.setItem('isActive', 'false')
-	})
-
-	const currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light'
-
-	if (currentTheme === 'dark') {
-		document.body.classList.remove('dark-mode')
-		localStorage.setItem('theme', 'light')
-	} else {
-		document.body.classList.add('dark-mode')
-		localStorage.setItem('theme', 'dark')
-	}
-}
-
-const savedTheme = () => {
-	const savedTheme = localStorage.getItem('theme')
-	const activeAnimation = localStorage.getItem('isActive')
-
-	if (savedTheme === 'dark') {
-		document.body.classList.add('dark-mode')
-	}
-
-	if (activeAnimation === 'true') {
-		changeThemeBtns.forEach(btn => {
-			btn.classList.add('nav__appearance-toggle--active')
-		})
-	} else {
-		changeThemeBtns.forEach(btn => {
-			btn.classList.remove('nav__appearance-toggle--active')
-		})
-	}
 }
 
 const handleMobileNav = () => {
@@ -86,6 +47,25 @@ const handleMobileNav = () => {
 	navItems.forEach(item => {
 		item.parentElement.classList.toggle('nav__item--active')
 	})
+}
+
+const hideNav = () => {
+	const currentScroll = window.scrollY || document.documentElement.scrollTop
+
+	if (currentScroll > lastScroll) {
+		gsap.to(navBar, { y: -navBar.offsetHeight, duration: 0.4, ease: 'power2.out' })
+		navBar.classList.remove('nav--active')
+	} else {
+		gsap.to(navBar, { y: 0, duration: 0.4, ease: 'power2.out' })
+		navBar.classList.add('nav--active')
+	}
+
+	lastScroll = currentScroll <= 0 ? 0 : currentScroll
+
+	if (lastScroll < 10) {
+		gsap.to(navBar, { y: 0, duration: 0.4, ease: 'power2.out' })
+		navBar.classList.remove('nav--active')
+	}
 }
 
 const getTime = () => {

@@ -8,7 +8,12 @@
 	height: 70px;
 	color: var(--text-light);
 	background: transparent;
+	transition: background-color 0.3s;
 	z-index: 1000;
+
+	&--active {
+		background-color: var(--text-secondary);
+	}
 
 	.wrapper {
 		display: flex;
