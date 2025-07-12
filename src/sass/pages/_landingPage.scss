@@ -211,14 +211,11 @@
 			background-color: var(--text-light);
 			color: var(--primary);
 		}
-		&--left {
-			border-color: var(--text-secondary);
-			opacity: 0.6;
-		}
 
-		&--right {
+		&--active {
 			border-color: var(--text-secondary);
 			opacity: 0.6;
+			cursor: block;
 		}
 
 		&-arrow {
