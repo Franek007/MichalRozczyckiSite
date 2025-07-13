@@ -1,4 +1,4 @@
-import gsap from 'gsap'
+import gsap from 'gsap/dist/gsap'
 
 let burgerBtn
 let navBar
@@ -47,6 +47,11 @@ const handleMobileNav = () => {
 	navItems.forEach(item => {
 		item.parentElement.classList.toggle('nav__item--active')
 	})
+
+	const page = document.body.dataset.page
+	if (page != loadingPage) {
+		navBar.classList.add('.nav--active')
+	}
 }
 
 const hideNav = () => {

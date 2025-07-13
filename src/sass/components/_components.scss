@@ -6,6 +6,10 @@
 	max-width: 1200px;
 }
 
+.section {
+	min-height: 150vh;
+}
+
 .section-padding {
 	padding: 4.2em 1em;
 }
@@ -13,6 +17,11 @@
 // .section-heading-box {
 // 	margin-top: $margin-xxxl;
 // }
+
+.h1-heading {
+	font: $h1;
+	letter-spacing: $h1-spacing;
+}
 
 .section-heading {
 	font: $h2;

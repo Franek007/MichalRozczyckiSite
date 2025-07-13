@@ -17,8 +17,6 @@
 	}
 
 	&__heading {
-		font: $h1;
-		letter-spacing: $h1-spacing;
 		margin-bottom: $margin-m;
 	}
 
@@ -97,8 +95,11 @@
 	}
 }
 
+.main {
+	transition: background-color 0.3s ease, color 0.3s;
+}
+
 .opinions {
-	margin-bottom: $margin-4xl;
 	min-height: 100vh;
 
 	&__cards {
@@ -221,8 +222,10 @@
 	display: flex;
 	align-items: center;
 	min-height: 100vh;
-	background-color: var(--primary);
-	color: var(--text-light);
+
+	// color: var(--text);
+	// background-color: var(--primary);
+	// color: var(--text-light);
 
 	&__box {
 		display: flex;
@@ -276,16 +279,10 @@
 		margin-left: 1em;
 	}
 
-	// .realization__cards,
-	// .realization__viewport,
-	// .realization__slider,
-	// .realization__card {
-	// 	outline: 1px solid red;
-	// }
-
 	&__cards {
 		margin-top: $margin-xl;
 		margin-bottom: $margin-l;
+		color: var(--text);
 	}
 
 	&__viewport {
@@ -340,6 +337,6 @@
 
 .technologies {
 	min-height: 100vh;
-	background-color: var(--secondary);
-	color: var(--text-light);
+	// background-color: var(--secondary);
+	// color: var(--text-light);
 }

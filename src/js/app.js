@@ -5,4 +5,6 @@ console.log(page)
 
 if (page === 'landingPage') {
 	import('./landingPage.js')
+} else if (page === 'projects') {
+	navBar.classList.add('.nav--active')
 }

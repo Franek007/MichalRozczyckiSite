@@ -1,9 +1,17 @@
+import { gsap } from 'gsap'
+import ScrollTrigger from 'gsap/dist/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
+//Opinions
 let opinionsCards
 let opinionsProgressDots
-let opinionsBtnRight
-let opinionsBtnLeft
 let opinionsBtns
 let opinionsSlider
+let opinionsLogos
+
+// about
+let aboutSection
 
 // realization
 let realizationCards
@@ -11,8 +19,8 @@ let realizationBtnRight
 let realizationBtnLeft
 let realizationBtns
 let realizationSlider
-let cardWidth = 300 + 20 // 300px szerokości + np. 20px marginesu/gap między kartami
-let currentIndex = 0 // początek
+let cardWidth = 300 + 20
+let currentIndex = 0
 
 const main2 = () => {
 	prepareDOMElements()
@@ -22,10 +30,11 @@ const main2 = () => {
 const prepareDOMElements = () => {
 	opinionsCards = document.querySelectorAll('.opinions__card')
 	opinionsProgressDots = document.querySelectorAll('.opinions__progress-dot')
-	opinionsBtnLeft = document.querySelector('.opinions__btn--left')
-	opinionsBtnRight = document.querySelector('.opinions__btn--right')
 	opinionsBtns = document.querySelectorAll('.opinions__btn')
 	opinionsSlider = document.querySelector('.opinions__slider')
+	opinionsLogos = document.querySelectorAll('.opinions__logo')
+
+	aboutSection = document.querySelector('.about')
 
 	realizationCards = document.querySelectorAll('.realization__card')
 	realizationBtnRight = document.querySelector('.realization__btn--right')
@@ -53,6 +62,7 @@ const prepareDOMEvents = () => {
 	})
 
 	handleRealizationSlider()
+	animations()
 }
 
 const handleOpinionLeftSlider = () => {
@@ -143,6 +153,68 @@ const handleRealizationSlider = () => {
 			realizationBtnRight.classList.remove('realization__btn--active')
 		}
 	}
+}
+
+const animations = () => {
+	opinionsLogos.forEach(logo => {
+		gsap.fromTo(
+			logo,
+			{ opacity: 0, y: 50 },
+			{
+				opacity: 1,
+				y: 0,
+				scrollTrigger: {
+					trigger: logo,
+					start: 'top 90%',
+					toggleActions: 'play none none none',
+					// markers: true,
+					// scrub: true,
+				},
+				duration: 1,
+
+				ease: 'power2.out',
+			}
+		)
+	})
+
+	const sections = document.querySelectorAll('[data-color]')
+	let activeBg = getComputedStyle(document.documentElement).getPropertyValue('--bg-dark')
+	let activeText = getComputedStyle(document.documentElement).getPropertyValue('--text-light')
+
+	sections.forEach(section => {
+		const colorVar = section.dataset.color
+		const textVar = section.dataset.text || '--text-light'
+
+		const targetBg = getComputedStyle(document.documentElement).getPropertyValue(colorVar)
+		const targetText = getComputedStyle(document.documentElement).getPropertyValue(textVar)
+
+		ScrollTrigger.create({
+			trigger: section,
+			start: 'top 50%',
+			end: 'bottom 50%',
+
+			onEnter: () => {
+				activeBg = targetBg
+				activeText = targetText
+				gsap.to('.main', {
+					backgroundColor: targetBg,
+					color: targetText,
+					duration: 0.3,
+					ease: 'power2.out',
+				})
+			},
+			onEnterBack: () => {
+				activeBg = targetBg
+				activeText = targetText
+				gsap.to('.main', {
+					backgroundColor: targetBg,
+					color: targetText,
+					duration: 0.3,
+					ease: 'power2.out',
+				})
+			},
+		})
+	})
 }
 
 document.addEventListener('DOMContentLoaded', main2)
