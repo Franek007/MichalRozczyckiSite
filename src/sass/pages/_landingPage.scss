@@ -7,7 +7,7 @@
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	height: 100%;
+	height: 100vh;
 	width: 100%;
 	color: var(--text-light);
 	overflow: hidden;
@@ -17,7 +17,7 @@
 	}
 
 	&__heading {
-		margin-bottom: $margin-m;
+		margin-bottom: $margin-s;
 	}
 
 	&__text {
@@ -40,7 +40,7 @@
 	&__btns {
 		display: flex;
 		align-items: center;
-		margin-top: $margin-xxl;
+		margin-top: $margin-xl;
 
 		&-arrow {
 			margin-top: $margin-xxs;
@@ -85,13 +85,7 @@
 	}
 
 	&__shadow {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background-color: hsla(210, 51%, 1%, 0.7);
-		z-index: -1;
+		@include bgShadow;
 	}
 }
 
@@ -102,22 +96,36 @@
 .opinions {
 	min-height: 100vh;
 
-	&__cards {
+	.wrapper {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		flex-direction: column;
+	}
+
+	.section-heading-box {
+		width: 80%;
+	}
+
+	&__cards {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
 		margin-top: $margin-s;
-		margin-bottom: $margin-l;
+		margin-bottom: $margin-5xl;
 		width: 100%;
-		height: 400px;
+		height: 500px;
 	}
 
 	&__viewport {
 		position: relative;
 		display: flex;
-		align-items: flex-end;
+		align-items: center;
+		justify-content: center;
 		padding: $margin-s;
-		width: 320px;
+		width: 340px;
 		height: 100%;
 		overflow: hidden;
 	}
@@ -125,17 +133,18 @@
 	&__slider {
 		display: flex;
 		gap: 20px;
+		height: 80%;
+		width: 100%;
 		transition: transform 0.3s ease-in-out;
 	}
 
 	&__card {
 		position: relative;
-		display: flex;
-		justify-content: center;
-		align-items: center;
 		flex-direction: column;
 		@include card;
-		min-width: 300px;
+		min-width: 320px;
+		height: 100%;
+		gap: 20px;
 
 		&-heading {
 			margin-top: 60px;
@@ -148,8 +157,16 @@
 		&-text {
 			margin-bottom: $margin-xs;
 			font: $text-regular;
+			font-weight: 300;
 			color: var(--text-secondary);
 		}
+	}
+
+	&__handle {
+		position: absolute;
+		top: 92.5%;
+		left: 50%;
+		transform: translateX(-50%);
 	}
 
 	&__img {
@@ -184,7 +201,7 @@
 	&__btns {
 		@include sliderBtns;
 		margin-top: $margin-m;
-		margin-bottom: $margin-4xl;
+		// margin-bottom: $margin-4xl;
 	}
 
 	&__btn {
@@ -222,10 +239,6 @@
 	display: flex;
 	align-items: center;
 	min-height: 100vh;
-
-	// color: var(--text);
-	// background-color: var(--primary);
-	// color: var(--text-light);
 
 	&__box {
 		display: flex;
@@ -280,6 +293,8 @@
 	}
 
 	&__cards {
+		display: flex;
+		justify-content: center;
 		margin-top: $margin-xl;
 		margin-bottom: $margin-l;
 		color: var(--text);
@@ -339,4 +354,129 @@
 	min-height: 100vh;
 	// background-color: var(--secondary);
 	// color: var(--text-light);
+}
+
+@media (width >= 768px) {
+	.header {
+		&__btns {
+			margin-top: $margin-xxl;
+		}
+
+		&__btn {
+			&--left {
+				width: 250px;
+			}
+		}
+	}
+
+	.opinions {
+		&__cards {
+			margin-top: $margin-l;
+		}
+
+		&__viewport {
+			width: 380px;
+		}
+
+		&__card {
+			min-width: 360px;
+
+			&-heading {
+				margin-top: 80px;
+			}
+		}
+
+		&__img {
+			width: 110px;
+			height: 110px;
+		}
+
+		&__btns {
+			gap: 7px;
+		}
+
+		&__btn {
+			padding: $padding-s $padding-l;
+		}
+	}
+
+	.realization {
+		&__cards {
+			margin-top: $margin-xxl;
+			margin-bottom: $margin-xl;
+		}
+
+		&__card {
+			min-width: 340px;
+			height: 420px;
+
+			&-number {
+				height: 80px;
+				width: 80px;
+				font-size: 3.2rem;
+			}
+		}
+
+		&__btns {
+			gap: 7px;
+		}
+
+		&__btn {
+			padding: $padding-s $padding-l;
+		}
+
+		&__viewport {
+			max-width: 600px;
+		}
+	}
+}
+
+@media (width >= 996px) {
+	.realization {
+		&__cards {
+			margin-top: $margin-xxxl;
+			margin-bottom: $margin-xxl;
+		}
+
+		&__viewport {
+			max-width: 800px;
+		}
+
+		&__slider {
+			gap: 25px;
+		}
+
+		&__card {
+			min-width: 360px;
+			height: 440px;
+
+			&-number {
+				height: 90px;
+				width: 90px;
+				font-size: 3.6rem;
+			}
+
+			&-heading {
+				font-size: 1.8rem;
+			}
+		}
+
+		&__btn {
+			width: 100%;
+			max-width: 125px;
+
+			&-arrow {
+				width: 24px;
+				height: 24px;
+			}
+		}
+	}
+}
+
+@media (width >= 1200px) {
+	.realization {
+		&__viewport {
+			max-width: 800px;
+		}
+	}
 }

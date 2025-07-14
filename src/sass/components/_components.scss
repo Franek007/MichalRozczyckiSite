@@ -6,17 +6,16 @@
 	max-width: 1200px;
 }
 
-.section {
-	min-height: 150vh;
-}
-
 .section-padding {
 	padding: 4.2em 1em;
 }
 
-// .section-heading-box {
-// 	margin-top: $margin-xxxl;
-// }
+.section-heading-box {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
 
 .h1-heading {
 	font: $h1;
@@ -38,10 +37,20 @@
 	text-align: center;
 }
 
-.sub-heading {
-	margin-bottom: 0.5em;
-	font-size: 2.4rem;
-	font-family: 'Libre Baskerville';
+.body--noscroll {
+	overflow: hidden;
+}
+
+.whereAmI {
+	margin-top: $margin-l;
+	margin-bottom: $margin-xxl;
+	font-weight: normal;
+
+	&--highlighted {
+		color: var(--primary);
+		font-weight: 500;
+		cursor: pointer;
+	}
 }
 
 @mixin underLine {
@@ -100,8 +109,8 @@
 
 @mixin sliderBtns {
 	display: flex;
-	align-items: center;
 	justify-content: center;
+	align-items: center;
 	gap: 5px;
 	width: 100%;
 }
@@ -124,5 +133,57 @@
 	&-arrow {
 		width: 20px;
 		height: 20px;
+	}
+}
+
+@mixin bgShadow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: hsla(210, 51%, 1%, 0.7);
+	z-index: -1;
+}
+
+@media (width >= 768px) {
+	.section-heading {
+		font-size: 2rem;
+	}
+
+	.section-text {
+		font-size: 2.2rem;
+	}
+
+	.h1-heading {
+		font-size: 5.8rem;
+	}
+}
+
+@media (width >= 996px) {
+	.section-heading {
+		font-size: 2.2rem;
+	}
+
+	.section-text {
+		font-size: 2.4rem;
+	}
+
+	.whereAmI {
+		font-size: 1.8rem;
+	}
+}
+
+@media (width >= 1200px) {
+	.section-heading {
+		font-size: 2.4rem;
+	}
+
+	.section-text {
+		font-size: 2.6rem;
+	}
+
+	.h1-heading {
+		font-size: 6.2rem;
 	}
 }

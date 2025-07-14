@@ -3,7 +3,7 @@
 .nav {
 	position: fixed;
 	top: 0;
-	bottom: 0;
+	left: 0;
 	width: 100%;
 	height: 70px;
 	color: var(--text-light);
@@ -109,13 +109,13 @@
 	&__sidebar {
 		position: fixed;
 		top: 0;
-		left: 0;
+		right: 0;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
 		padding: 5em 3em;
-		height: 100vh;
+		min-height: 100vh;
 		width: 100%;
 		font-weight: 400;
 		opacity: 0;
@@ -180,15 +180,35 @@
 	}
 }
 
-@media (width >= 768px) {
+@media (width >= 992px) {
+	.nav {
+		&__item {
+			font-size: 1.8rem;
+
+			&--highlighted {
+				font-size: 2.2rem;
+			}
+		}
+
+		&__home {
+			padding-left: 0;
+		}
+
+		&__items {
+			margin-bottom: $margin-s;
+		}
+
+		&__media-icon {
+			width: 28px;
+			height: 28px;
+		}
+	}
 }
 
-// @media (width >= 992px) {
-// 	.nav-mobile {
-// 		display: none;
-// 	}
-
-// 	.nav-desktop {
-// 		display: block;
-// 	}
-// }
+@media (width >= 1400px) {
+	.nav {
+		&__home {
+			padding-left: 0;
+		}
+	}
+}

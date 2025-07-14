@@ -31,6 +31,7 @@
 		"vinyl-source-stream": "^2.0.0"
 	},
 	"dependencies": {
+		"@justinribeiro/lite-youtube": "^1.8.2",
 		"gsap": "^3.13.0"
 	}
 }

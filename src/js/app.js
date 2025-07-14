@@ -1,10 +1,10 @@
 import './common.js'
-
 const page = document.body.dataset.page
-console.log(page)
 
 if (page === 'landingPage') {
 	import('./landingPage.js')
-} else if (page === 'projects') {
-	navBar.classList.add('.nav--active')
+} else if (page === 'project') {
+	import('@justinribeiro/lite-youtube')
+} else if (page === 'contact') {
+	import('./contact.js')
 }

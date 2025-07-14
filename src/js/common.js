@@ -1,4 +1,5 @@
 import gsap from 'gsap/dist/gsap'
+import '@justinribeiro/lite-youtube'
 
 let burgerBtn
 let navBar
@@ -9,6 +10,9 @@ let navItems
 let navHomeIcon
 let footerYear
 let lastScroll = 0
+let currentScroll = 0
+let savedCurrentScroll = 0
+const page = document.body.dataset.page
 
 const main = () => {
 	prepareDOMElements()
@@ -37,6 +41,44 @@ const prepareDOMEvents = () => {
 	})
 	window.addEventListener('scroll', hideNav)
 	getTime()
+	animations()
+	NavActive()
+}
+
+const animations = () => {
+	gsap.utils.toArray('.section-heading').forEach(el => {
+		gsap.from(el, {
+			scrollTrigger: {
+				trigger: el,
+				start: 'top 70%',
+				toggleActions: 'play none none none',
+			},
+			x: 50,
+			opacity: 0,
+			duration: 1,
+			ease: 'power3.out',
+		})
+	}),
+		gsap.utils.toArray('.section-text').forEach(el => {
+			if (el.classList.contains('no-aim')) return
+			gsap.from(el, {
+				scrollTrigger: {
+					trigger: el,
+					start: 'top 60%',
+					toggleActions: 'play none none none',
+				},
+				x: -50,
+				opacity: 0,
+				duration: 1,
+				ease: 'power3.out',
+			})
+		})
+}
+
+const NavActive = () => {
+	if (page != 'landingPage') {
+		navBar.classList.add('nav--active')
+	}
 }
 
 const handleMobileNav = () => {
@@ -44,18 +86,23 @@ const handleMobileNav = () => {
 	burgerBtn.classList.toggle('burgerBtn--active')
 	navHomeIcon.classList.toggle('nav__home--active')
 
+	if (navSideBar.classList.contains('nav__sidebar--active')) {
+		document.body.style.overflowY = 'hidden'
+	} else {
+		document.body.style.overflowY = ''
+	}
+
 	navItems.forEach(item => {
 		item.parentElement.classList.toggle('nav__item--active')
 	})
-
-	const page = document.body.dataset.page
-	if (page != loadingPage) {
-		navBar.classList.add('.nav--active')
-	}
 }
 
 const hideNav = () => {
-	const currentScroll = window.scrollY || document.documentElement.scrollTop
+	if (document.querySelector('.nav__sidebar--active')) {
+		return
+	}
+
+	currentScroll = window.scrollY || document.documentElement.scrollTop
 
 	if (currentScroll > lastScroll) {
 		gsap.to(navBar, { y: -navBar.offsetHeight, duration: 0.4, ease: 'power2.out' })
@@ -68,8 +115,12 @@ const hideNav = () => {
 	lastScroll = currentScroll <= 0 ? 0 : currentScroll
 
 	if (lastScroll < 10) {
-		gsap.to(navBar, { y: 0, duration: 0.4, ease: 'power2.out' })
-		navBar.classList.remove('nav--active')
+		if (page != 'landingPage') {
+			navBar.classList.add('nav--active')
+		} else {
+			gsap.to(navBar, { y: 0, duration: 0.4, ease: 'power2.out' })
+			navBar.classList.remove('nav--active')
+		}
 	}
 }
 

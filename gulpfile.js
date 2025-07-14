@@ -52,6 +52,10 @@ function javaScript(done) {
 			})
 		)
 		.bundle()
+		.on('error', function (err) {
+			console.error('JS Error:', err.message)
+			this.emit('end') 
+		})
 		.pipe(source('app.min.js'))
 		.pipe(buffer())
 		.pipe(sourcemaps.init({ loadMaps: true }))

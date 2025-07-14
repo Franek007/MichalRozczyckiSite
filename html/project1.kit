@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michał Różycki — Project 1</title>
+    <!-- @include 'head.kit' -->
+    <link rel="canonical" href="" />
+    <meta name="description" content="">
+    <script type="module">
+        import 'https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@latest/lite-youtube.js';
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "Szczecin Floating Garden",
+      "description": "Film promocyjny zrealizowany dla Inicjatywy Szczecin Floating Garden.",
+      "thumbnailUrl": "https://example.com/miniaturka.jpg",
+      "uploadDate": "2024-05-20T08:00:00+00:00",
+      "duration": "PT2M30S",
+      "contentUrl": "https://example.com/film.mp4",
+      "embedUrl": "https://www.youtube.com/embed/guJLfqTFfIw"
+    }
+    </script>
+</head>
+
+<body data-page="project">
+    <!-- @include 'nav.kit' -->
+
+    <section class="project section-padding">
+        <div class="wrapper">
+            <p class="whereAmI"><a href="index.html">Strona głowna</a> / <a href="projects.html">Projekty</a> / <a
+                    class="whereAmI--highlighted" href="#">Szczecin Floating
+                    Garden</a></p>
+            <a class="project__goBack" href="projects.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="2s0" viewBox="0 0 1024 1024"
+                    aria-label="arrow-left icon" role="img" class="project__goBack-icon">
+                    <path fill="var(--text-secondary)"
+                        d="M752.145 0c8.685 0 17.572 3.434 24.237 10.099c13.33 13.33 13.33 35.143 0 48.473L320.126 515.03l449.591 449.591c13.33 13.33 13.33 35.144 0 48.474c-13.33 13.33-35.142 13.33-48.472 0L247.418 539.268c-13.33-13.33-13.33-35.144 0-48.474L727.91 10.1C734.575 3.435 743.46.002 752.146.002z" />
+                </svg>
+            </a>
+            <h1 class="h1-heading projects__heading">Szczecin Floating Garden</h1>
+            <div class="project__description">
+                <p class="project__text">Pracodawnca: Inicjatywa Szczecin Floating Garden</p>
+                <p class="project__text">Wykorzystane technologie: dron, telefon</p>
+                <p class="project__text">Realizacja: rok 2024</p>
+            </div>
+            <div class="project__video-box">
+                <lite-youtube videoid="guJLfqTFfIw" videotitle="Floating Garden"
+                    style="max-width: 100%; aspect-ratio: 16/9;" loading="lazy>
+                    <a class=" lite-youtube-fallback" href="https://www.youtube.com/watch?v=guJLfqTFfIw">Watch on
+                    YouTube</a>
+                </lite-youtube>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- @include 'footer.kit' -->
+    <script src="./dist/js/app.min.js" type="module"></script>
+</body>
+
+</html>

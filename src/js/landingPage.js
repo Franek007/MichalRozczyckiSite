@@ -9,6 +9,9 @@ let opinionsProgressDots
 let opinionsBtns
 let opinionsSlider
 let opinionsLogos
+let card
+let isSliding = false
+let wasShown = false
 
 // about
 let aboutSection
@@ -19,7 +22,8 @@ let realizationBtnRight
 let realizationBtnLeft
 let realizationBtns
 let realizationSlider
-let cardWidth = 300 + 20
+let cardWidth = 320
+
 let currentIndex = 0
 
 const main2 = () => {
@@ -41,6 +45,8 @@ const prepareDOMElements = () => {
 	realizationBtnLeft = document.querySelector('.realization__btn--left')
 	realizationBtns = document.querySelectorAll('.realization__btn')
 	realizationSlider = document.querySelector('.realization__slider')
+
+	card = document.querySelector('.opinions__card')
 }
 
 const prepareDOMEvents = () => {
@@ -89,6 +95,10 @@ const handleOpinionsDot = () => {
 }
 
 const handleOpinionsSlider = (direction, value) => {
+	if (isSliding) return
+
+	isSliding = true
+
 	let activeCard = Array.from(opinionsCards).find(card => card.classList.contains('opinions__card--active'))
 
 	const activeCardDataset = activeCard.dataset.cardNumber
@@ -99,7 +109,7 @@ const handleOpinionsSlider = (direction, value) => {
 	if (newCardNumber > 3) newCardNumber = 1
 	if (newCardNumber < 1) newCardNumber = 3
 
-	const offset = (newCardNumber - 1) * 320
+	const offset = (newCardNumber - 1) * (card.offsetWidth + 20)
 	opinionsSlider.style.transform = `translateX(-${offset}px)`
 
 	const newActiveCard = Array.from(opinionsCards).find(card => parseInt(card.dataset.cardNumber) === newCardNumber)
@@ -112,6 +122,10 @@ const handleOpinionsSlider = (direction, value) => {
 
 	const newActiveDot = Array.from(opinionsProgressDots).find(dot => parseInt(dot.dataset.cardNumber) === newCardNumber)
 	newActiveDot.classList.add('opinions__progress-dot--active')
+
+	setTimeout(() => {
+		isSliding = false
+	}, 400)
 }
 
 const handleRealizationBtnLeftSlider = () => {
@@ -131,11 +145,9 @@ const handleRealizationBtnRightSlider = () => {
 }
 
 const handleRealizationSlider = () => {
-	console.log(realizationCards.length)
 	const maxIndex = realizationCards.length - 1
 
 	if (currentIndex === maxIndex) {
-		let cardWidth = 280
 		realizationSlider.style.transform = `translateX(-${currentIndex * cardWidth}px)`
 		realizationBtnRight.classList.add('realization__btn--active')
 	} else {
@@ -156,6 +168,29 @@ const handleRealizationSlider = () => {
 }
 
 const animations = () => {
+	if (wasShown) retrun
+
+	gsap.from('.header__box', {
+		scrollTrigger: {
+			trigger: '.header__box',
+		},
+		x: -100,
+		opacity: 0,
+		duration: 1,
+		ease: 'power3.out',
+	})
+
+	gsap.from('.opinions__cards', {
+		scrollTrigger: {
+			trigger: '.section-heading',
+			start: 'top 30%',
+		},
+		x: -100,
+		opacity: 0,
+		duration: 1,
+		ease: 'power3.out',
+	})
+
 	opinionsLogos.forEach(logo => {
 		gsap.fromTo(
 			logo,
@@ -165,16 +200,47 @@ const animations = () => {
 				y: 0,
 				scrollTrigger: {
 					trigger: logo,
-					start: 'top 90%',
+					start: 'top 70%',
 					toggleActions: 'play none none none',
-					// markers: true,
-					// scrub: true,
 				},
 				duration: 1,
 
 				ease: 'power2.out',
 			}
 		)
+	})
+
+	gsap.from('.about__box-img', {
+		scrollTrigger: {
+			trigger: '.about__box-img',
+			start: 'top 40%',
+		},
+		y: 50,
+		opacity: 0,
+		duration: 1,
+		ease: 'power3.out',
+	})
+
+	gsap.from('.about__box-text', {
+		scrollTrigger: {
+			trigger: '.about__box-text',
+			start: 'top 85%',
+		},
+		y: 100,
+		opacity: 0,
+		duration: 1,
+		ease: 'power3.out',
+	})
+
+	gsap.from('.realization__cards', {
+		scrollTrigger: {
+			trigger: '.realization__cards',
+			start: 'top 45%',
+		},
+		y: -100,
+		opacity: 0,
+		duration: 1,
+		ease: 'power3.out',
 	})
 
 	const sections = document.querySelectorAll('[data-color]')
@@ -190,8 +256,8 @@ const animations = () => {
 
 		ScrollTrigger.create({
 			trigger: section,
-			start: 'top 50%',
-			end: 'bottom 50%',
+			start: 'top 30%',
+			end: 'bottom 40%',
 
 			onEnter: () => {
 				activeBg = targetBg
@@ -215,6 +281,7 @@ const animations = () => {
 			},
 		})
 	})
+	wasShown = true
 }
 
 document.addEventListener('DOMContentLoaded', main2)
