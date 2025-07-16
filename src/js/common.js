@@ -1,5 +1,4 @@
 import gsap from 'gsap/dist/gsap'
-import '@justinribeiro/lite-youtube'
 
 let burgerBtn
 let navBar

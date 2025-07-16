@@ -3,40 +3,69 @@
 
 .contact {
 	position: relative;
+	min-height: 100vh;
 	overflow: hidden;
 
-    &__text {
-        font-weight: normal;
-    }
+	&__heading {
+		margin-bottom: $margin-xxs;
+	}
+
+	&__text {
+		font-weight: normal;
+
+		&--secondary {
+			color: var(--text-secondary);
+		}
+
+		&--small {
+			font: $text-small;
+			font-size: 1.4rem;
+		}
+	}
+
+	&__gif {
+		margin-top: $margin-m;
+		margin-bottom: $margin-l;
+		width: 100%;
+		max-width: 250px;
+	}
 
 	&__box {
-		display: flex;
-		justify-content: center;
+		margin-top: $margin-xxl;
 		width: 100%;
 		height: 100%;
 	}
 
 	&__form {
-		padding: $padding-l;
 		width: 100%;
 		max-width: 600px;
-		border-radius: 4px;
+
+		&-name {
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			margin-top: $margin-m;
+			width: 100%;
+			height: 100%;
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
 
 		&-box {
 			display: flex;
 			flex-direction: column;
-			margin: 1em 0;
-		}
-
-		&-heading {
-			margin-bottom: 0.25em;
-			font-size: 2.4rem;
-			font-family: $ff-heading;
+			margin-top: $margin-m;
 		}
 
 		&-input,
 		&-textarea {
-			padding: 8px 5px;
+			margin-top: $margin-xxs;
+			padding: 12px 5px;
+			font: $text-small;
+			background-color: var(--bg);
+			border: 1px solid var(--border);
 		}
 
 		&-input:focus-visible,
@@ -45,8 +74,9 @@
 		}
 
 		&-textarea {
-			min-height: 150px;
-			font-family: 'Source Sans 3', sans-serif;
+			min-height: 200px;
+			font-family: $ff-text;
+			font-size: 1.4rem;
 			resize: vertical;
 		}
 
@@ -56,17 +86,25 @@
 
 		&-error {
 			font-size: 1.4rem;
-			color: var(----danger);
+			color: var(--danger);
 		}
 	}
 
 	&__box-btn {
 		display: flex;
 		flex-direction: row-reverse;
+		margin-top: $margin-xl;
 	}
 
 	&__btn {
 		@include btn;
+		padding: $padding-s $padding-m;
+		width: 150px;
+
+		&:hover {
+			background-color: var(--bg);
+			color: var(--primary);
+		}
 	}
 
 	.succes {
@@ -80,6 +118,7 @@
 	&__checkbox-box {
 		display: flex;
 		align-items: flex-start;
+		margin-top: $margin-xs;
 	}
 
 	&__link {
@@ -103,4 +142,65 @@
 	background-color: var(--danger);
 	border: 1px solid var(--primary);
 	opacity: 0.8;
+}
+
+.contact + .footer .wrapper {
+	display: flex;
+	align-items: flex-end;
+}
+
+.contact + .footer {
+	height: 300px;
+}
+
+.contact + .footer .footer.section-padding {
+	padding-top: 0;
+}
+
+@media (width >= 576px) {
+	.contact {
+		&__form {
+			width: 100%;
+			max-width: 600px;
+
+			&-name-box {
+				display: flex;
+				gap: 20px;
+			}
+
+			&-name {
+				margin-top: 0;
+			}
+		}
+	}
+}
+
+@media (width >= 768px) {
+	.contact {
+		&__text-box {
+			width: 100%;
+		}
+
+		&__box {
+			width: 100%;
+		}
+
+		&__form {
+			width: 100%;
+			max-width: 650px;
+
+			&-name {
+				margin-top: 0;
+			}
+
+			&-name-box {
+				display: flex;
+				gap: 20px;
+			}
+
+			&-textarea {
+				min-height: 250px;
+			}
+		}
+	}
 }

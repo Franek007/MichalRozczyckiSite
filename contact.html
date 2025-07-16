@@ -21,6 +21,10 @@
         <a href="index.html#" class="nav__home">
             MicRozycki.com
         </a>
+        <div class="langue-preferance" aria-label="Wybór języka">
+            <p class="langue-preferance__text"><a class="langue-preferance__link" href="/pl/" hreflang="pl">PL</a>
+            </p> | <a href="" class="langue-preferance__link" href="/en/" hreflang="en">EN</a>
+        </div>
         <button class="burgerBtn">
             <div class="burgerBtn__firstBar"></div>
         </button>
@@ -31,6 +35,12 @@
                 <li><a href="index.html#servises" class="nav__item nav__item--highlighted">Usługi</a></li>
                 <li><a href="index.html#opinion" class="nav__item">Opinie</a></li>
                 <li><a href="contact.html" class="nav__item">Kontakt</a></li>
+                <div class="nav__sidebar__langue-preferance">
+                    <p class="nav__sidebar__langue-preferance-text"> <a
+                            class="nav__sidebar__langue-preferance-text">PL</a> | <a href=""
+                            class="nav__sidebar__langue-preferance-text">EN</a>
+                    </p>
+                </div>
             </ul>
             <div class="nav__media">
                 <a href="https://www.instagram.com/mic.rozycki/?hl=bg" class="nav__media-icon"></a>
@@ -49,29 +59,41 @@
             <p class="whereAmI"><a href="index.html">Strona głowna</a> / <a class="whereAmI--highlighted"
                     href="#">Kontakt
                 </a></p>
-            <h1 class="h1-heading contact__heading">Kontakt</h1>
-            <p class="contact__text">Poznajmy się!</p>
-            <iframe src="https://giphy.com/embed/QLKSt3wQqlj7a" width="480" height="240" style="" frameBorder="0"
-                class="giphy-embed" allowFullScreen></iframe>
-            <p><a href="https://giphy.com/gifs/QLKSt3wQqlj7a">via GIPHY</a></p>
+            <div class="contact__text-box">
+                <h1 class="h1-heading contact__heading">Kontakt</h1>
+                <p class="contact__text">Poznajmy się!</p>
+                <div class="contact__gif-box">
+                    <img src="./src/img/hello.gif" class="contact__gif"></img>
+                </div>
+                <p class="contact__text">Napisz na maila: <a href="mailto:kontakt@michalrozycki.com"
+                        class="contact__text--secondary">kontakt@michalrozycki.com</a></p>
+            </div>
             <div class="contact__box">
                 <form action="./dist/php/contact.php" method="post" class="contact__form">
-                    <div class="contact__form-box">
-                        <label for="name">Imię i nazwisko:</label>
-                        <input type="text" id="name" name="name" required class="contact__form-input"
-                            placeholder="Podaj imię i nazwisko">
-                        <p class="contact__form-error"></p>
+                    <div class="contact__form-name-box">
+                        <div class="contact__form-name">
+                            <label for="name">Imię:</label>
+                            <input type="text" id="name" name="name" required class="contact__form-input"
+                                placeholder="Podaj imię:">
+                            <p class="contact__form-error"></p>
+                        </div>
+                        <div class="contact__form-name">
+                            <label for="surname">Nazwisko: </label>
+                            <input type="text" id="surname" name="surname" required class="contact__form-input"
+                                placeholder="Podaj Nazwisko:">
+                            <p class="contact__form-error"></p>
+                        </div>
                     </div>
                     <div class="contact__form-box">
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" required class="contact__form-input"
-                            placeholder="Podaj adres e-mail">
+                            placeholder="Podaj adres e-mail:">
                         <p class="contact__form-error"></p>
                     </div>
                     <div class="contact__form-box">
                         <label for="msg">Wiadomość:</label>
                         <textarea name="msg" id="msg" required class="contact__form-textarea"
-                            placeholder="Napisz treść wiadomości"></textarea>
+                            placeholder="Napisz treść wiadomości:"></textarea>
                         <p class="contact__form-error"></p>
                     </div>
                     <p class="contact__msg-status"></p>
@@ -88,14 +110,8 @@
             </div>
         </div>
     </section>
-
     <footer class="footer section-padding">
-    <div class="wrapper">
-        <div class="footer__box">
-            <div class="footer__contact">
-                <p class="section-text no-aim">Zainteresowany współpracą?</p>
-                <a href="contact.html" class="footer__contact-btn">Poznajmy się</a>
-            </div>
+        <div class="wrapper">
             <div class="footer__text-box">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill=""
                     aria-label="instagram icon" role="img" class="footer__icon">
@@ -106,8 +122,7 @@
                 </p>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
     <script src="./dist/js/app.min.js" type="module"></script>
 </body>
 

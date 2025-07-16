@@ -15,6 +15,8 @@ const browserify = require('browserify')
 const source = require('vinyl-source-stream')
 const buffer = require('vinyl-buffer')
 const babelify = require('babelify')
+const nunjucksRender = require('gulp-nunjucks-render')
+const fs = require('fs')
 
 const paths = {
 	html: './html/**/*.kit',
@@ -29,7 +31,24 @@ const paths = {
 	distPhp: './dist/php',
 }
 
+function buildPL() {
+	const data = JSON.parse(fs.readFileSync('./data/lang-pl.json'))
+	return src('./html/index.kit')
+		.pipe(nunjucksRender({ data }))
+		.pipe(rename('index.html'))
+		.pipe(dest('./dist'))
+}
+
+function buildEN() {
+	const data = JSON.parse(fs.readFileSync('./data/lang-en.json'))
+	return src('./html/index.kit')
+		.pipe(nunjucksRender({ data }))
+		.pipe(rename('index.html'))
+		.pipe(dest('./dist/en'))
+}
+
 function sassCompiler(done) {
+	console.log('test')
 	src(paths.sass)
 		.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
@@ -42,6 +61,7 @@ function sassCompiler(done) {
 }
 
 function javaScript(done) {
+	console.log('Kompiluję JavaScript...')
 	browserify({
 		entries: ['./src/js/app.js'],
 		debug: true,
@@ -53,8 +73,8 @@ function javaScript(done) {
 		)
 		.bundle()
 		.on('error', function (err) {
-			console.error('JS Error:', err.message)
-			this.emit('end') 
+			console.error('❌ Błąd JS:', err.message)
+			done(err) // zakończ task z błędem
 		})
 		.pipe(source('app.min.js'))
 		.pipe(buffer())
@@ -62,8 +82,9 @@ function javaScript(done) {
 		.pipe(uglify())
 		.pipe(sourcemaps.write('.'))
 		.pipe(dest(paths.jsDest))
-
-	done()
+		.on('end', () => {
+			done()
+		})
 }
 
 function phpScript(done) {

@@ -1,6 +1,7 @@
 let contactSendBtn
 let emailInput
 let nameInput
+let surnameInput
 let msgInput
 let checkboxInput
 let checkBoxParent
@@ -15,6 +16,7 @@ const prepareDOMElements = () => {
 	emailInput = document.getElementById('email')
 	nameInput = document.getElementById('name')
 	msgInput = document.getElementById('msg')
+	surnameInput = document.getElementById('surname')
 	checkboxInput = document.querySelector('.contact__checkbox')
 	checkBoxParent = document.querySelector('.contact__checkbox-box')
 }
@@ -22,6 +24,8 @@ const prepareDOMElements = () => {
 const prepareDOMEvents = () => {
 	contactSendBtn.addEventListener('click', handleContactForm)
 }
+
+console.log('skfjsdfjfj')
 
 const handleContactForm = () => {
 	const msgStatus = document.querySelector('.contact__msg-status')
@@ -90,7 +94,7 @@ const handleContactForm = () => {
 	}
 
 	checkCheckbox()
-	checkForm([emailInput, msgInput, nameInput])
+	checkForm([emailInput, msgInput, nameInput, surnameInput])
 	checkMail()
 }
 

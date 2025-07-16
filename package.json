@@ -32,6 +32,8 @@
 	},
 	"dependencies": {
 		"@justinribeiro/lite-youtube": "^1.8.2",
-		"gsap": "^3.13.0"
+		"gsap": "^3.13.0",
+		"gulp-nunjucks-render": "^2.2.3",
+		"nunjucks": "^3.2.4"
 	}
 }
