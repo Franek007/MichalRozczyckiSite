@@ -1,0 +1,75 @@
+{% extends "layouts/base.njk" %}
+{% set bodyPage = "privacy" %}
+{% set alternatePL = "" %}
+{% set alternateEN = "" %}
+
+{% block content %}
+<section class="policy section-padding">
+    <div class="wrapper">
+        <h1 class="policy__title">{{ lang.title }}</h1>
+
+        <div class="policy__section">
+            <h2 class="policy__heading">{{ lang.section1.heading }}</h2>
+            <p>
+                {{ lang.section1.textLine1 }}<br />
+                {{ lang.section1.textLine2 }}<br />
+                {{ lang.section1.emailLabel }} <a href="mailto:{{ lang.section1.email }}">{{ lang.section1.email }}</a>
+            </p>
+        </div>
+
+        <div class="policy__section">
+            <h2 class="policy__heading">{{ lang.section2.heading }}</h2>
+            <p>
+                {{ lang.section2.paragraph1 }}<br />
+                {{ lang.section2.paragraph2 }}
+            </p>
+        </div>
+
+        <div class="policy__section">
+            <h2 class="policy__heading">{{ lang.section3.heading }}</h2>
+            <ul>
+                <li>{{ lang.section3.item1 }}</li>
+                <li>{{ lang.section3.item2 }}</li>
+                <li>{{ lang.section3.item3 }}</li>
+            </ul>
+        </div>
+
+        <div class="policy__section">
+            <h2 class="policy__heading">{{ lang.section4.heading }}</h2>
+            <p>{{ lang.section4.paragraph }}</p>
+        </div>
+
+        <div class="policy__section">
+            <h2 class="policy__heading">{{ lang.section5.heading }}</h2>
+            <p>{{ lang.section5.intro }}</p>
+            <ul>
+                <li>{{ lang.section5.item1 }}</li>
+                <li>{{ lang.section5.item2 }}</li>
+                <li>{{ lang.section5.item3 }}</li>
+                <li>{{ lang.section5.item4 }}</li>
+                <li>{{ lang.section5.item5 }}</li>
+                <li>{{ lang.section5.item6 }}</li>
+                <li>{{ lang.section5.item7 }}</li>
+            </ul>
+        </div>
+
+        <div class="policy__section">
+            <h2 class="policy__heading">{{ lang.section6.heading }}</h2>
+            <p>{{ lang.section6.paragraph }}</p>
+        </div>
+
+        <div class="policy__section">
+            <h2 class="policy__heading">{{ lang.section7.heading }}</h2>
+            <p>{{ lang.section7.paragraph }}</p>
+        </div>
+
+        <div class="policy__section policy__footer">
+            <p><strong>{{ lang.footer.updatedLabel }}</strong> {{ lang.footer.updatedDate }}</p>
+            <p>
+                {{ lang.footer.contactText }}<br />
+                <a href="mailto:{{ lang.footer.email }}">{{ lang.footer.email }}</a>
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}

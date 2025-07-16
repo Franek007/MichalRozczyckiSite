@@ -1,0 +1,33 @@
+{% extends "layouts/base.njk" %}
+{% set bodyPage = "projects" %}
+{% set alternatePL = "" %}
+{% set alternateEN = "" %}
+{% set canonicalLink = "" %}
+
+{% block content %}
+<section class="projects section-padding">
+    <div class="wrapper">
+        <p class="whereAmI">
+            <a href="index.html">{{ lang.breadcrumb.home }}</a> /
+            <a class="whereAmI--highlighted" href="#">{{ lang.breadcrumb.projects }}</a>
+        </p>
+
+        <h1 class="h1-heading projects__heading">{{ lang.heading }}</h1>
+
+        <div class="projects__boxes">
+            <a class="projects__box--first projects__box" href="project1.html">
+                <p class="projects__text">{{ lang.cta }}</p>
+                <div class="projects__shadow"></div>
+            </a>
+            <a class="projects__box--second projects__box" href="project2.html">
+                <p class="projects__text">{{ lang.cta }}</p>
+                <div class="projects__shadow"></div>
+            </a>
+            <a class="projects__box--third projects__box" href="project3.html">
+                <p class="projects__text">{{ lang.cta }}</p>
+                <div class="projects__shadow"></div>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

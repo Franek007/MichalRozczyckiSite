@@ -1,0 +1,28 @@
+{
+	"meta": {
+		"title": "Kontakt | Michał Różycki",
+		"description": "Skontaktuj się ze mną!"
+	},
+
+	"breadcrumbs": {
+		"home": "Strona główna",
+		"current": "Kontakt"
+	},
+	"heading": "Kontakt",
+	"intro": "Poznajmy się!",
+	"gif-alt": "gif",
+	"emailIntro": "Napisz na maila:",
+	"email": "kontakt@michalrozycki.com",
+	"form": {
+		"nameLabel": "Imię:",
+		"namePlaceholder": "Podaj imię:",
+		"surnameLabel": "Nazwisko:",
+		"surnamePlaceholder": "Podaj nazwisko:",
+		"emailLabel": "Email:",
+		"emailPlaceholder": "Podaj adres e-mail:",
+		"messageLabel": "Wiadomość:",
+		"messagePlaceholder": "Napisz treść wiadomości:",
+		"checkbox": "Zapoznałem(-am) się z <a href=\"polityka-prywatnosci.html\">polityką prywatności</a> i zgadzam się na przetwarzanie moich danych w celu kontaktu.",
+		"submit": "Wyślij"
+	}
+}

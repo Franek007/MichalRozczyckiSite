@@ -1,0 +1,189 @@
+{% extends "layouts/base.njk" %}
+{% set bodyPage = "landingPage" %}
+{% set alternatePL = "" %}
+{% set alternateEN = "" %}
+{% set canonicalLink = "" %}
+
+{% block content %}
+<header class="section section-padding header">
+    <video class="header__video" autoplay muted loop playsinline preload="metadata">
+        <source src="./video/video.webm" type="video/webm" />
+        <source src="./video/video.mp4" type="video/mp4" />
+        {{ lang.header.fallback }}
+    </video>
+    <div class="wrapper">
+        <div class="header__box">
+            <div class="header__heading-box">
+                <h1 class="header__heading h1-heading">{{ lang.header.title }}</h1>
+                <p class="header__text">{{ lang.header.subtitle }}</p>
+            </div>
+            <div class="header__btns">
+                <a href="portfolio.html" class="header__btn header__btn--left">{{ lang.header.btnProjects }}</a>
+                <a href="#about" class="header__btn header__btn--right header__btn-link--right">{{ lang.header.btnAbout
+                    }}</a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                    class="header__btns-arrow" aria-label="arrow icon" role="img">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" d="m18 15l3-3l-3-3M3 12a2 2 0 1 0 4 0a2 2 0 1 0-4 0m4 0h14" />
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="header__shadow"></div>
+</header>
+
+<main class="main">
+    <section class="section section-padding opinions" id="opinions" data-color="--bg-dark" data-text="--text">
+        <div class=" wrapper">
+            <div class="section-heading-box">
+                <h2 class="section-heading">{{ lang.opinions.heading }}</h2>
+                <p class="section-text">{{ lang.opinions.description }}</p>
+            </div>
+            <div class="opinions__cards">
+                <div class="opinions__viewport">
+                    <div class="opinions__slider">
+                        <div class="opinions__card opinions__card--active" data-card-number='1'>
+                            <img src="./dist/img/franekImg.jpeg" alt="" class="opinions__img">
+                            <p class="opinions__card-heading">Olivia Cole</p>
+                            <p class="opinions__card-text">{{ lang.opinions.card1 }}</p>
+                        </div>
+                        <div class="opinions__card" data-card-number='2'>
+                            <img src="./dist/img/franekImg.jpeg" alt="" class="opinions__img">
+                            <p class="opinions__card-heading">Damian Skupa</p>
+                            <p class="opinions__card-text">{{ lang.opinions.card2 }}</p>
+                        </div>
+                        <div class="opinions__card" data-card-number='3'>
+                            <img src="./dist/img/franekImg.jpeg" alt="" class="opinions__img">
+                            <p class="opinions__card-heading">Andrzej Grzegota</p>
+                            <p class="opinions__card-text">{{ lang.opinions.card3 }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="opinions__handle">
+                    <div class="opinions__progress">
+                        <div class="opinions__progress-dot opinions__progress-dot--active" data-card-number='1'>
+                        </div>
+                        <div class="opinions__progress-dot" data-card-number='2'></div>
+                        <div class="opinions__progress-dot" data-card-number='3'></div>
+                    </div>
+                    <div class="opinions__btns">
+                        <a class="opinions__btn opinions__btn--left"> <svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                height="20" viewBox="0 0 24 24" aria-label="arrow left icon" role="img"
+                                class="opinions__btn-arrow">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M17 12H3m3-3l-3 3l3 3m11-3a2 2 0 1 0 4 0a2 2 0 1 0-4 0" />
+                            </svg> </a>
+                        <a class="opinions__btn opinions__btn--right"><svg xmlns="http://www.w3.org/2000/svg" width="30"
+                                height="30" viewBox="0 0 24 24" class="opinions__btn-arrow"
+                                aria-label="arrow right icon" role="img">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m18 15l3-3l-3-3M3 12a2 2 0 1 0 4 0a2 2 0 1 0-4 0m4 0h14" />
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+            <h3 class="section-text">{{ lang.opinions.trustedBy }}</h3>
+            <div class="opinions__logos">
+                <div class="opinions__logos-row">
+                    <div class="opinions__logo"><img src="./img/FranekImg.jpeg" alt="{{ lang.opinions.logo-alt }}"
+                            class="opinions__logo-img">
+                    </div>
+                    <div class="opinions__logo"><img src="./img/FranekImg.jpeg" alt="{{ lang.opinions.logo-alt }}"
+                            class="opinions__logo-img">
+                    </div>
+                    <div class="opinions__logo"><img src="./img/FranekImg.jpeg" alt="{{ lang.opinions.logo-alt }}"
+                            class="opinions__logo-img">
+                    </div>
+                </div>
+                <div class="opinions__logos-row">
+                    <div class="opinions__logo"><img src="./img/FranekImg.jpeg" alt="{{ lang.opinions.logo-alt }}"
+                            class="opinions__logo-img">
+                    </div>
+                    <div class="opinions__logo"><img src="./img/FranekImg.jpeg" alt="{{ lang.opinions.logo-alt }}"
+                            class="opinions__logo-img">
+                    </div>
+                    <div class="opinions__logo"><img src="./img/FranekImg.jpeg" alt="{{ lang.opinions.logo-alt }}"
+                            class="opinions__logo-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section section-padding about" id="about" data-color="--primary" data-text="--text-light">
+        <div class="wrapper">
+            <div class="section-heading-box">
+                <h2 class="section-heading">{{ lang.about.heading }}</h2>
+                <p class="section-text">{{ lang.about.subtitle }}</p>
+            </div>
+            <div class="about__box">
+                <div class="about__box-img">
+                    <img src="./dist/img/FranekImg.jpeg" alt="{{ lang.about.alt }}" class="about__img" loading="lazy">
+                </div>
+                <div class="about__box-text">
+                    <p class="about__text--big">{{ lang.about.greeting }}</p>
+                    <p class="about__text">{{ lang.about.description }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section section-padding realization" id="realization" data-color="--bg-dark" data-text="--text">
+        <div class="wrapper">
+            <div class="section-heading-box">
+                <h2 class="section-heading">{{ lang.realization.heading }}</h2>
+                <p class="section-text">{{ lang.realization.subtitle }}</p>
+            </div>
+            <div class="realization__cards">
+                <div class="realization__viewport">
+                    <div class="realization__slider">
+                        <div class="realization__card">
+                            <div class="realization__card-number">1</div>
+                            <h4 class="realization__card-heading">{{ lang.realization.step1.title }}</h4>
+                            <p class="realization__card-text">{{ lang.realization.step1.text }}</p>
+                        </div>
+                        <div class="realization__card">
+                            <div class="realization__card-number">2</div>
+                            <h4 class="realization__card-heading">{{ lang.realization.step2.title }}</h4>
+                            <p class="realization__card-text">{{ lang.realization.step2.text }}</p>
+                        </div>
+                        <div class="realization__card">
+                            <div class="realization__card-number">3</div>
+                            <h4 class="realization__card-heading">{{ lang.realization.step3.title }}</h4>
+                            <p class="realization__card-text">{{ lang.realization.step3.text }}</p>
+                        </div>
+                        <div class="realization__card">
+                            <div class="realization__card-number">4</div>
+                            <h4 class="realization__card-heading">{{ lang.realization.step4.title }}</h4>
+                            <p class="realization__card-text">{{ lang.realization.step4.text }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="realization__btns">
+                <a class="realization__btn realization__btn--left"> <svg xmlns="http://www.w3.org/2000/svg" width="20"
+                        height="20" viewBox="0 0 24 24" aria-label="arrow left icon" role="img"
+                        class="realization__btn-arrow">
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M17 12H3m3-3l-3 3l3 3m11-3a2 2 0 1 0 4 0a2 2 0 1 0-4 0" />
+                    </svg> </a>
+                <a class="realization__btn realization__btn--right"><svg xmlns="http://www.w3.org/2000/svg" width="30"
+                        height="30" viewBox="0 0 24 24" class="realization__btn-arrow" aria-label="arrow right icon"
+                        role="img">
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="m18 15l3-3l-3-3M3 12a2 2 0 1 0 4 0a2 2 0 1 0-4 0m4 0h14" />
+                    </svg></a>
+            </div>
+        </div>
+    </section>
+    <section class="technologies section-padding section" id="technologies" data-color="--secondary"
+        data-text="--text-light">
+        <div class="wrapper">
+            <div class="section-heading-box">
+                <h2 class="section-heading">{{ lang.technologies.heading }}</h2>
+                <p class="section-text">{{ lang.technologies.subtitle }}</p>
+            </div>
+
+        </div>
+    </section>
+</main>
+<hr>
+{% endblock %}

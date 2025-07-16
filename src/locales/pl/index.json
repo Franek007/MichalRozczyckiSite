@@ -1,0 +1,54 @@
+{
+	"meta": {
+		"title": "Michał Różycki",
+		"description": "Tworzenie profesjonalnych treści filmowych."
+	},
+
+	"header": {
+		"fallback": "Twoja przeglądarka nie wspiera video.",
+		"title": "Michał Różycki",
+		"subtitle": "Tworzenie profesjonalny treści filmowych",
+		"btnProjects": "Zobacz projekty",
+		"btnAbout": "O pracy"
+	},
+	"opinions": {
+		"heading": "Opinie",
+		"description": "Przeczytaj co inni mają do powiedzenia",
+		"card1": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima molestiae quasi hic quam at tenetur corrupti sint aperiam numquam quas saepe ratione architecto, ad adipisci provident laudantium et eveniet molestias.",
+		"card2": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima molestiae quasi hic quam at tenetur corrupti sint aperiam numquam quas saepe ratione architecto, ad adipisci provident laudantium et eveniet molestias.",
+		"card3": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima molestiae quasi hic quam at tenetur corrupti sint aperiam numquam quas saepe ratione architecto, ad adipisci provident laudantium et eveniet molestias.",
+		"trustedBy": "Zaufali mi",
+		"logo-alt": "logo"
+	},
+	"about": {
+		"heading": "O mnie",
+		"subtitle": "Dowiedz się kim jestem",
+		"greeting": "Cześć!",
+		"description": "Mam na imię Michał. Jestem <span class=\"about__text-span\">filmowcem</span>. W moich produkcjach stawiam na emocje, estetykę i autentyczność — każdy kadr ma znaczenie. Tworzę filmy, które zostają w pamięci i oddają to, co najważniejsze.",
+		"alt": "Zdjęcie Michała Różyckiego"
+	},
+	"realization": {
+		"heading": "Realizacja",
+		"subtitle": "Jak wygląda nasza współpraca?",
+		"step1": {
+			"title": "Brief",
+			"text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet nihil delectus molestias ipsam accusantium. At non possimus deserunt nam rem quam libero reprehenderit, beatae quis aliquid. Libero temporibus illum ad."
+		},
+		"step2": {
+			"title": "Brief",
+			"text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet nihil delectus molestias ipsam accusantium. At non possimus deserunt nam rem quam libero reprehenderit, beatae quis aliquid. Libero temporibus illum ad."
+		},
+		"step3": {
+			"title": "Brief",
+			"text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet nihil delectus molestias ipsam accusantium. At non possimus deserunt nam rem quam libero reprehenderit, beatae quis aliquid. Libero temporibus illum ad."
+		},
+		"step4": {
+			"title": "Brief",
+			"text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet nihil delectus molestias ipsam accusantium. At non possimus deserunt nam rem quam libero reprehenderit, beatae quis aliquid. Libero temporibus illum ad."
+		}
+	},
+	"technologies": {
+		"heading": "Technologie",
+		"subtitle": "Zobacz jak wykonuje prace?"
+	}
+}

@@ -1,0 +1,30 @@
+.policy {
+	margin-top: 2em;
+	line-height: 1.6;
+
+	.wrapper {
+		max-width: 600px;
+	}
+}
+
+.policy__title {
+	margin-bottom: 1rem;
+	font-size: 2rem;
+}
+
+.policy__heading {
+	font-size: 1.3rem;
+	margin-top: 2rem;
+	margin-bottom: 0.5rem;
+	font-weight: bold;
+}
+
+.policy__section ul {
+	margin-left: 1.5rem;
+	list-style-type: disc;
+}
+
+.policy__footer {
+	margin-top: 3rem;
+	font-style: italic;
+}

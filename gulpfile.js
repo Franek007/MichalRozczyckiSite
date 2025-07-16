@@ -29,26 +29,64 @@ const paths = {
 	imgDest: './dist/img',
 	php: './src/php/**/*.php',
 	distPhp: './dist/php',
+	njk: './src/templates/**/*.njk',
+	video: './src/video/*.*',
+	videoDist: './dist/video/',
+	languages: './src/locales/**/*.json',
+	languagesDist: './dist/locales/',
 }
 
-function buildPL() {
-	const data = JSON.parse(fs.readFileSync('./data/lang-pl.json'))
-	return src('./html/index.kit')
-		.pipe(nunjucksRender({ data }))
-		.pipe(rename('index.html'))
-		.pipe(dest('./dist'))
-}
+const languages = ['pl', 'en']
+const pages = ['index', 'contact', 'privacy-policy', 'project1', 'projects']
 
-function buildEN() {
-	const data = JSON.parse(fs.readFileSync('./data/lang-en.json'))
-	return src('./html/index.kit')
-		.pipe(nunjucksRender({ data }))
-		.pipe(rename('index.html'))
-		.pipe(dest('./dist/en'))
-}
+function buildAllPages(done) {
+	const tasks = []
+
+	languages.forEach(lang => {
+		pages.forEach(page => {
+			const dataPath = `./src/locales/${lang}/${page}.json`
+			if (!fs.existsSync(dataPath)) {
+				console.warn(`⚠️ Brakuje pliku tłumaczeń: ${dataPath}`)
+				return
+			}
+			let data = {}
+			if (fs.existsSync(dataPath)) {
+				const raw = fs.readFileSync(dataPath, 'utf-8')
+				if (raw.trim()) {
+					try {
+						data = JSON.parse(raw)
+					} catch (err) {
+						console.error(`❌ Błąd składni JSON w pliku: ${dataPath}`)
+						console.error(err.message)
+					}
+				} else {
+					console.warn(`⚠️ Pusty plik tłumaczenia: ${dataPath}`)
+				}
+			} else {
+				console.warn(`⚠️ Brak pliku tłumaczenia: ${dataPath}`)
+			}
+
+			const pageTask = () =>
+				src(`./src/templates/pages/${page}.njk`)
+					.pipe(
+						nunjucksRender({
+							path: ['./src/templates/'],
+							data: {
+								lang: data,
+								langCode: lang,
+							},
+						})
+					)
+					.pipe(dest(lang === 'pl' ? './dist' : `./dist/${lang}`))
+
+			tasks.push(pageTask)
+		})
+	})
+
+	return parallel(...tasks)(done)
+} 
 
 function sassCompiler(done) {
-	console.log('test')
 	src(paths.sass)
 		.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
@@ -74,7 +112,7 @@ function javaScript(done) {
 		.bundle()
 		.on('error', function (err) {
 			console.error('❌ Błąd JS:', err.message)
-			done(err) // zakończ task z błędem
+			done(err)
 		})
 		.pipe(source('app.min.js'))
 		.pipe(buffer())
@@ -92,15 +130,25 @@ function phpScript(done) {
 	done()
 }
 
+function video(done) {
+	src(paths.video).pipe(dest(paths.videoDist))
+	done()
+}
+
+// function handleLanguages(done) {
+// 	src(paths.languages).pipe(dest(paths.languagesDist))
+// 	done()
+// }
+
 function convertImages(done) {
 	src(paths.img).pipe(imagemin()).pipe(dest(paths.imgDest))
 	done()
 }
 
-function handleKits(done) {
-	src(paths.html).pipe(kit()).pipe(dest('./'))
-	done()
-}
+// function handleKits(done) {
+// 	src(paths.html).pipe(kit()).pipe(dest('./'))
+// 	done()
+// }
 
 function cleanStuff(done) {
 	src(paths.dist, { read: false }).pipe(clean())
@@ -110,7 +158,7 @@ function cleanStuff(done) {
 function startBrowserSync(done) {
 	browserSync.init({
 		server: {
-			baseDir: './',
+			baseDir: './dist/',
 		},
 	})
 
@@ -118,15 +166,15 @@ function startBrowserSync(done) {
 }
 
 function watchForChanges(done) {
-	watch('./*.html').on('change', reload)
-	watch([paths.html, paths.sass, paths.js], parallel(handleKits, sassCompiler, javaScript, phpScript)).on(
-		'change',
-		reload
-	)
+	watch('./dist/**/*.html').on('change', reload)
+	watch(
+		[paths.njk, paths.html, paths.sass, paths.js, paths.video, paths.languages],
+		parallel(buildAllPages, sassCompiler, javaScript, phpScript)
+	).on('change', reload)
 	watch(paths.img, convertImages).on('change', reload)
 	done()
 }
 
-const mainFunctions = parallel(handleKits, sassCompiler, javaScript, convertImages, phpScript)
+const mainFunctions = parallel(buildAllPages, sassCompiler, javaScript, convertImages, phpScript, video)
 exports.cleanStuff = cleanStuff
 exports.default = series(mainFunctions, startBrowserSync, watchForChanges)

@@ -1,0 +1,54 @@
+{
+	"meta": {
+		"title": "Polityka Prywatności | Michał Różycki",
+		"description": ""
+	},
+	"title": "Polityka Prywatności",
+	"section1": {
+		"heading": "§1. Administrator danych osobowych",
+		"textLine1": "Administratorem Twoich danych osobowych jest:",
+		"textLine2": "Franciszek Rubinowicz",
+		"emailLabel": "E-mail:",
+		"email": "kontakt@rubinowicz.pl"
+	},
+	"section2": {
+		"heading": "§2. Cel i podstawa przetwarzania danych",
+		"paragraph1": "Dane osobowe podane w formularzu kontaktowym (imię, adres e-mail, treść wiadomości) przetwarzane są wyłącznie w celu obsługi zapytania oraz kontaktu z Tobą.",
+		"paragraph2": "Podstawą prawną przetwarzania danych jest art. 6 ust. 1 lit. f RODO — prawnie uzasadniony interes administratora, polegający na obsłudze zapytań i korespondencji."
+	},
+	"section3": {
+		"heading": "§3. Zakres przetwarzanych danych",
+		"item1": "Imię i nazwisko",
+		"item2": "Adres e-mail",
+		"item3": "Treść wiadomości"
+	},
+	"section4": {
+		"heading": "§4. Okres przechowywania danych",
+		"paragraph": "Dane będą przechowywane przez okres niezbędny do realizacji celu, czyli do zakończenia korespondencji. Po tym czasie dane zostaną usunięte, chyba że przepisy prawa nakazują ich dłuższe przechowywanie."
+	},
+	"section5": {
+		"heading": "§5. Twoje prawa",
+		"intro": "Masz prawo do:",
+		"item1": "dostępu do swoich danych oraz otrzymania ich kopii,",
+		"item2": "sprostowania (poprawienia) danych,",
+		"item3": "usunięcia danych (o ile nie stoi to w sprzeczności z obowiązującymi przepisami prawa),",
+		"item4": "ograniczenia przetwarzania danych,",
+		"item5": "przenoszenia danych,",
+		"item6": "wniesienia sprzeciwu wobec przetwarzania danych,",
+		"item7": "złożenia skargi do Prezesa Urzędu Ochrony Danych Osobowych (UODO)."
+	},
+	"section6": {
+		"heading": "§6. Udostępnianie danych",
+		"paragraph": "Dane nie są przekazywane podmiotom trzecim, z wyjątkiem sytuacji, gdy jest to niezbędne do realizacji usługi (np. dostawca hostingu, operator poczty elektronicznej)."
+	},
+	"section7": {
+		"heading": "§7. Pliki cookies i inne technologie",
+		"paragraph": "Na stronie mogą być stosowane pliki cookies, które służą m.in. do zapamiętywania ustawień użytkownika (np. motyw ciemny/jasny). Nie są wykorzystywane do profilowania ani celów marketingowych bez Twojej zgody."
+	},
+	"footer": {
+		"updatedLabel": "Data ostatniej aktualizacji:",
+		"updatedDate": "09.07.2025",
+		"contactText": "Jeśli masz pytania dotyczące przetwarzania danych osobowych, skontaktuj się z nami:",
+		"email": "kontakt@rubinowicz.pl"
+	}
+}

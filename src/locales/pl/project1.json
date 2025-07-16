@@ -1,0 +1,17 @@
+{
+	"meta": {
+		"title": "Project Szczecin Floating Garden | Michał Różycki",
+		"description": "Realizacja wideo dla inicjatywy Szczecin Floating Garden, rok 2024."
+	},
+	"breadcrumb": {
+		"home": "Strona główna",
+		"projects": "Projekty"
+	},
+	"project": {
+		"title": "Szczecin Floating Garden",
+		"client": "Pracodawca: Inicjatywa Szczecin Floating Garden",
+		"tech": "Wykorzystane technologie: dron, telefon",
+		"year": "Realizacja: rok 2024",
+		"youtubeFallback": "Obejrzyj na YouTube"
+	}
+}

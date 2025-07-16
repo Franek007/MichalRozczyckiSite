@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{{ langCode }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include "components/head.njk"%}
+    <title>{{ lang.meta.title }}</title>
+    <link rel="canonical" href="{{ lang.meta.link }}" />
+    <meta name="description" content="{{ lang.meta.description }}">
+    <link rel="alternate" hreflang="pl" href="{{ alternatePL }}" />
+    <link rel="alternate" hreflang="en" href="{{ alternateEN }}" />
+    <link rel="alternate" hreflang="x-default" href="{{ alternatePL }}" />
+</head>
+
+<body data-page="{{bodyPage}}">
+    {% include "components/nav.njk"%}
+
+    {%block content %} {% endblock %}
+
+    <script src="./js/app.min.js" type="module"></script>
+</body>
+
+</html>
