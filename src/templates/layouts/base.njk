@@ -23,7 +23,11 @@
     {%block content %} {% endblock %}
 
     {% include "components/footer.njk"%}
+    {% if langCode == "en" %}
+    <script src="../js/app.min.js" type="module"></script>
+    {% else %}
     <script src="./js/app.min.js" type="module"></script>
+    {% endif %}
 </body>
 
 </html>

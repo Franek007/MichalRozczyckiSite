@@ -3,12 +3,18 @@
 {% set alternatePL = "" %}
 {% set alternateEN = "" %}
 {% set canonicalLink = "" %}
+{% if langCode == 'en' %}
+{% set assetPath = '../' %}
+{% else %}
+{% set assetPath = './' %}
+{% endif %}
+
 
 {% block content %}
 <header class="section section-padding header">
     <video class="header__video" autoplay muted loop playsinline preload="metadata">
-        <source src="./video/video.webm" type="video/webm" />
-        <source src="./video/video.mp4" type="video/mp4" />
+        <source src="{{assetPath}}video/video.webm" type="video/webm" />
+        <source src="{{assetPath}}video/video.mp4" type="video/mp4" />
         {{ lang.header.fallback }}
     </video>
     <div class="wrapper">
@@ -18,7 +24,7 @@
                 <p class="header__text">{{ lang.header.subtitle }}</p>
             </div>
             <div class="header__btns">
-                <a href="portfolio.html" class="header__btn header__btn--left">{{ lang.header.btnProjects }}</a>
+                <a href="projects.html" class="header__btn header__btn--left">{{ lang.header.btnProjects }}</a>
                 <a href="#about" class="header__btn header__btn--right header__btn-link--right">{{ lang.header.btnAbout
                     }}</a>
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
@@ -43,17 +49,17 @@
                 <div class="opinions__viewport">
                     <div class="opinions__slider">
                         <div class="opinions__card opinions__card--active" data-card-number='1'>
-                            <img src="./dist/img/franekImg.jpeg" alt="" class="opinions__img">
+                            <img src="{{assetPath}}img/franekImg.jpeg" alt="Olivia Cole" class="opinions__img">
                             <p class="opinions__card-heading">Olivia Cole</p>
                             <p class="opinions__card-text">{{ lang.opinions.card1 }}</p>
                         </div>
                         <div class="opinions__card" data-card-number='2'>
-                            <img src="./dist/img/franekImg.jpeg" alt="" class="opinions__img">
+                            <img src="{{assetPath}}img/franekImg.jpeg" alt="Olivia Cole" class="opinions__img">
                             <p class="opinions__card-heading">Damian Skupa</p>
                             <p class="opinions__card-text">{{ lang.opinions.card2 }}</p>
                         </div>
                         <div class="opinions__card" data-card-number='3'>
-                            <img src="./dist/img/franekImg.jpeg" alt="" class="opinions__img">
+                            <img src="{{assetPath}}img/franekImg.jpeg" alt="Olivia Cole" class="opinions__img">
                             <p class="opinions__card-heading">Andrzej Grzegota</p>
                             <p class="opinions__card-text">{{ lang.opinions.card3 }}</p>
                         </div>
@@ -85,25 +91,25 @@
             <h3 class="section-text">{{ lang.opinions.trustedBy }}</h3>
             <div class="opinions__logos">
                 <div class="opinions__logos-row">
-                    <div class="opinions__logo"><img src="./img/FranekImg.jpeg" alt="{{ lang.opinions.logo-alt }}"
-                            class="opinions__logo-img">
+                    <div class="opinions__logo"><img src="{{assetPath}}img/FranekImg.jpeg"
+                            alt="{{ lang.opinions.logo-alt }}" class="opinions__logo-img">
                     </div>
-                    <div class="opinions__logo"><img src="./img/FranekImg.jpeg" alt="{{ lang.opinions.logo-alt }}"
-                            class="opinions__logo-img">
+                    <div class="opinions__logo"><img src="{{assetPath}}img/FranekImg.jpeg"
+                            alt="{{ lang.opinions.logo-alt }}" class="opinions__logo-img">
                     </div>
-                    <div class="opinions__logo"><img src="./img/FranekImg.jpeg" alt="{{ lang.opinions.logo-alt }}"
-                            class="opinions__logo-img">
+                    <div class="opinions__logo"><img src="{{assetPath}}img/FranekImg.jpeg"
+                            alt="{{ lang.opinions.logo-alt }}" class="opinions__logo-img">
                     </div>
                 </div>
                 <div class="opinions__logos-row">
-                    <div class="opinions__logo"><img src="./img/FranekImg.jpeg" alt="{{ lang.opinions.logo-alt }}"
-                            class="opinions__logo-img">
+                    <div class="opinions__logo"><img src="{{assetPath}}img/FranekImg.jpeg"
+                            alt="{{ lang.opinions.logo-alt }}" class="opinions__logo-img">
                     </div>
-                    <div class="opinions__logo"><img src="./img/FranekImg.jpeg" alt="{{ lang.opinions.logo-alt }}"
-                            class="opinions__logo-img">
+                    <div class="opinions__logo"><img src="{{assetPath}}img/FranekImg.jpeg"
+                            alt="{{ lang.opinions.logo-alt }}" class="opinions__logo-img">
                     </div>
-                    <div class="opinions__logo"><img src="./img/FranekImg.jpeg" alt="{{ lang.opinions.logo-alt }}"
-                            class="opinions__logo-img">
+                    <div class="opinions__logo"><img src="{{assetPath}}img/FranekImg.jpeg"
+                            alt="{{ lang.opinions.logo-alt }}" class="opinions__logo-img">
                     </div>
                 </div>
             </div>
@@ -117,7 +123,8 @@
             </div>
             <div class="about__box">
                 <div class="about__box-img">
-                    <img src="./dist/img/FranekImg.jpeg" alt="{{ lang.about.alt }}" class="about__img" loading="lazy">
+                    <img src="{{assetPath}}img/FranekImg.jpeg" alt="{{ lang.about.alt }}" class="about__img"
+                        loading="lazy">
                 </div>
                 <div class="about__box-text">
                     <p class="about__text--big">{{ lang.about.greeting }}</p>

@@ -45,16 +45,31 @@ function buildAllPages(done) {
 	languages.forEach(lang => {
 		pages.forEach(page => {
 			const dataPath = `./src/locales/${lang}/${page}.json`
-			if (!fs.existsSync(dataPath)) {
-				console.warn(`⚠️ Brakuje pliku tłumaczeń: ${dataPath}`)
-				return
-			}
-			let data = {}
-			if (fs.existsSync(dataPath)) {
-				const raw = fs.readFileSync(dataPath, 'utf-8')
-				if (raw.trim()) {
+			const commonPath = `./src/locales/${lang}/common.json`
+			let commonData = {}
+			let pageData = {}
+
+			if (fs.existsSync(commonPath)) {
+				const rawCommon = fs.readFileSync(commonPath, 'utf-8')
+				if (rawCommon.trim()) {
 					try {
-						data = JSON.parse(raw)
+						commonData = JSON.parse(rawCommon)
+					} catch (err) {
+						console.error(`❌ Błąd w common.json: ${commonPath}`)
+						console.error(err.message)
+					}
+				} else {
+					console.warn(`⚠️ Pusty plik common.json: ${commonPath}`)
+				}
+			} else {
+				console.warn(`⚠️ Brak pliku common.json: ${commonPath}`)
+			}
+
+			if (fs.existsSync(dataPath)) {
+				const rawPage = fs.readFileSync(dataPath, 'utf-8')
+				if (rawPage.trim()) {
+					try {
+						pageData = JSON.parse(rawPage)
 					} catch (err) {
 						console.error(`❌ Błąd składni JSON w pliku: ${dataPath}`)
 						console.error(err.message)
@@ -63,7 +78,13 @@ function buildAllPages(done) {
 					console.warn(`⚠️ Pusty plik tłumaczenia: ${dataPath}`)
 				}
 			} else {
-				console.warn(`⚠️ Brak pliku tłumaczenia: ${dataPath}`)
+				console.warn(`⚠️ Brakuje pliku tłumaczeń: ${dataPath}`)
+				return
+			}
+
+			const combinedData = {
+				...commonData,
+				...pageData,
 			}
 
 			const pageTask = () =>
@@ -72,8 +93,9 @@ function buildAllPages(done) {
 						nunjucksRender({
 							path: ['./src/templates/'],
 							data: {
-								lang: data,
+								lang: combinedData,
 								langCode: lang,
+								pageName: page.replace('.njk', ''),
 							},
 						})
 					)
@@ -84,7 +106,7 @@ function buildAllPages(done) {
 	})
 
 	return parallel(...tasks)(done)
-} 
+}
 
 function sassCompiler(done) {
 	src(paths.sass)
