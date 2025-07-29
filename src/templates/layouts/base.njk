@@ -19,14 +19,15 @@
 
 <body data-page="{{bodyPage}}">
     {% include "components/nav.njk"%}
+    {% include "components/loader.njk"%}
 
     {%block content %} {% endblock %}
 
     {% include "components/footer.njk"%}
     {% if langCode == "en" %}
-    <script src="../js/app.min.js" type="module"></script>
+    <script src="../js/app.min.js" type="module" defer></script>
     {% else %}
-    <script src="./js/app.min.js" type="module"></script>
+    <script src="./js/app.min.js" type="module" defer></script>
     {% endif %}
 </body>
 

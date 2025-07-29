@@ -1,0 +1,64 @@
+@use '../utilities/sizes' as *;
+
+.preloader {
+	position: fixed;
+	inset: 0;
+	min-height: 100vh;
+	width: 100%;
+	background-color: #fff;
+	transition: opacity 0.5s ease;
+	z-index: 9999;
+
+	&__boxes {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		height: 100%;
+		width: 100%;
+
+		&--horizontal {
+			&__box {
+				background-color: yellow;
+			}
+		}
+
+		&--vertical {
+			flex-direction: row;
+			position: absolute;
+			inset: 0;
+
+			.preloader__box {
+				height: 100%;
+				min-width: 33vh;
+				background-color: var(--bg-light);
+			}
+		}
+	}
+
+	&__box {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 20vh;
+		width: 100%;
+		background-color: var(--bg);
+	}
+
+	&__text {
+		font: $h1;
+		letter-spacing: $h1-spacing;
+	}
+}
+
+@keyframes load {
+	0% {
+		transform: scaleX(0);
+	}
+	50% {
+		transform: scaleX(1);
+	}
+	100% {
+		transform: scaleX(0);
+	}
+}

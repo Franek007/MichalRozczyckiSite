@@ -1,8 +1,10 @@
 {% extends "layouts/base.njk" %}
 {% set bodyPage = "landingPage" %}
+
 {% set alternatePL = "" %}
 {% set alternateEN = "" %}
 {% set canonicalLink = "" %}
+
 {% if langCode == 'en' %}
 {% set assetPath = '../' %}
 {% else %}
@@ -11,6 +13,8 @@
 
 
 {% block content %}
+
+
 <header class="section section-padding header">
     <video class="header__video" autoplay muted loop playsinline preload="metadata">
         <source src="{{assetPath}}video/video.webm" type="video/webm" />

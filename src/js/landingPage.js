@@ -1,7 +1,7 @@
 import { gsap } from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
-
 gsap.registerPlugin(ScrollTrigger)
+console.log('jestem loading')
 
 //Opinions
 let opinionsCards
@@ -168,6 +168,21 @@ const handleRealizationSlider = () => {
 }
 
 const animations = () => {
+	gsap.from('.preloader__boxes--horizontal .preloader__box', {
+		x: -400,
+		duration: 0.5,
+		stagger: 0.2, // automatyczne opóźnienie między elementami
+		ease: 'power2.out',
+	})
+	setTimeout(() => {
+		gsap.from('.preloader__boxes--vertical .preloader__box', {
+			y: -400,
+			duration: 0.5,
+			stagger: 0.2, // automatyczne opóźnienie między elementami
+			ease: 'power2.out',
+		})
+	}, 100)
+
 	if (wasShown) retrun
 
 	gsap.from('.header__box', {

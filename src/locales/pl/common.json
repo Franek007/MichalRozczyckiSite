@@ -1,11 +1,11 @@
 {
 	"nav": {
-		"about": "About me",
-		"projects": "Projects",
-		"services": "Services",
-		"opinions": "Reviews",
-		"contact": "Contact",
-		"ariaLanguage": "Language preference"
+		"about": "O mnie",
+		"projects": "Projekty",
+		"services": "Usługi",
+		"opinions": "Opinie",
+		"contact": "Kontakt",
+		"ariaLanguage": "Wybór języka"
 	},
 
 	"footer": {
